@@ -8,18 +8,26 @@ import Layout from '../layouts/Layout.astro';
     <section class="relative overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div class="text-center">
+          <div class="mb-4">
+            <span class="inline-block bg-white/20 text-white px-4 py-1 rounded-full text-sm font-semibold">
+              CLI + Web Interface Available
+            </span>
+          </div>
           <h1 class="text-5xl md:text-6xl font-bold mb-6">
             Transform Meetings into<br />High-Quality Product Backlogs
           </h1>
           <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            An intelligent system that turns Scrum meetings into structured, high-quality Product Backlog Items with built-in quality assurance and stakeholder intelligence.
+            An intelligent 8-step pipeline that turns Scrum meetings into structured, high-quality Product Backlog Items with built-in quality assurance, semantic search, and stakeholder intelligence.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#pricing" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
-              Get Started
+            <a href="#cli" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
+              Explore CLI
             </a>
-            <a href="/docs" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
-              View Documentation
+            <a href="#web" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+              View Web Interface
+            </a>
+            <a href="/docs" class="border-2 border-white/50 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">
+              Documentation
             </a>
           </div>
         </div>
@@ -39,7 +47,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-blue-600 text-4xl mb-4">✅</div>
           <h3 class="text-xl font-bold mb-3 text-slate-900">Quality Built-In</h3>
-          <p class="text-slate-600">Confidence scoring prevents incomplete requirements from entering sprints</p>
+          <p class="text-slate-600">8-step pipeline with confidence scoring prevents incomplete requirements from entering sprints</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-blue-600 text-4xl mb-4">⚡</div>
@@ -49,25 +57,266 @@ import Layout from '../layouts/Layout.astro';
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-blue-600 text-4xl mb-4">🔗</div>
           <h3 class="text-xl font-bold mb-3 text-slate-900">Integrated</h3>
-          <p class="text-slate-600">Works with Fireflies, Jira, Azure DevOps, and Confluence</p>
+          <p class="text-slate-600">Works with Fireflies, Jira, Azure DevOps, Confluence via MCP</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-          <div class="text-blue-600 text-4xl mb-4">🧠</div>
-          <h3 class="text-xl font-bold mb-3 text-slate-900">Learning System</h3>
-          <p class="text-slate-600">Gets smarter with your team's history and patterns</p>
+          <div class="text-blue-600 text-4xl mb-4">🔍</div>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">Semantic Search</h3>
+          <p class="text-slate-600">RAG-powered search finds similar work, patterns, and constraints automatically</p>
         </div>
         <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <div class="text-blue-600 text-4xl mb-4">🚀</div>
-          <h3 class="text-xl font-bold mb-3 text-slate-900">Time Saving</h3>
-          <p class="text-slate-600">Save 2-3 hours per refinement meeting</p>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">CLI + Web</h3>
+          <p class="text-slate-600">Powerful CLI for automation, intuitive Web UI for browsing and collaboration</p>
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- 8-Step Pipeline -->
+    <section id="pipeline" class="bg-slate-900 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-4">8-Step Intelligence Pipeline</h2>
+        <p class="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
+          Every transcript goes through our sophisticated processing pipeline for maximum quality
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-blue-500">
+            <div class="text-blue-400 font-bold text-sm mb-2">Step 1</div>
+            <h3 class="text-lg font-bold mb-2">Event Detection</h3>
+            <p class="text-slate-400 text-sm">Identifies meeting type (refinement, planning, retrospective) with confidence scoring</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-blue-500">
+            <div class="text-blue-400 font-bold text-sm mb-2">Step 2</div>
+            <h3 class="text-lg font-bold mb-2">Extract Candidates</h3>
+            <p class="text-slate-400 text-sm">Parses transcript for potential PBIs, identifying business value, scope, and actors</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-green-500">
+            <div class="text-green-400 font-bold text-sm mb-2">Step 3</div>
+            <h3 class="text-lg font-bold mb-2">Score Confidence</h3>
+            <p class="text-slate-400 text-sm">Evaluates completeness, clarity, actionability, and testability against quality checklist</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-green-500">
+            <div class="text-green-400 font-bold text-sm mb-2">Step 4</div>
+            <h3 class="text-lg font-bold mb-2">Enrich Context</h3>
+            <p class="text-slate-400 text-sm">Uses RAG to find similar work, past decisions, and technical documentation</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-yellow-500">
+            <div class="text-yellow-400 font-bold text-sm mb-2">Step 5</div>
+            <h3 class="text-lg font-bold mb-2">Check Risks</h3>
+            <p class="text-slate-400 text-sm">Detects dependencies, scope creep, blockers, and integration risks</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-yellow-500">
+            <div class="text-yellow-400 font-bold text-sm mb-2">Step 6</div>
+            <h3 class="text-lg font-bold mb-2">Generate Questions</h3>
+            <p class="text-slate-400 text-sm">Creates actionable questions with suggested answers routed to stakeholders</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-purple-500">
+            <div class="text-purple-400 font-bold text-sm mb-2">Step 7</div>
+            <h3 class="text-lg font-bold mb-2">Readiness Check</h3>
+            <p class="text-slate-400 text-sm">Validates against your team's custom Definition of Ready criteria</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border-t-4 border-purple-500">
+            <div class="text-purple-400 font-bold text-sm mb-2">Step 8</div>
+            <h3 class="text-lg font-bold mb-2">Final Output</h3>
+            <p class="text-slate-400 text-sm">Formats for DevOps, Obsidian, Confluence, JSON, or Markdown</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLI Section -->
+    <section id="cli" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-slate-900 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+          Command Line Interface
+        </span>
+        <h2 class="text-4xl font-bold text-slate-900 mb-4">10 Powerful CLI Commands</h2>
+        <p class="text-slate-600 max-w-2xl mx-auto">
+          Complete control over your backlog processing with a comprehensive CLI toolkit
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Processing Commands -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+          <code class="text-blue-600 font-mono font-bold">chef process</code>
+          <p class="text-slate-600 mt-2">Process meeting transcripts through the 8-step pipeline. Supports Fireflies URLs, file paths, and HITL mode.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+          <code class="text-blue-600 font-mono font-bold">chef resume</code>
+          <p class="text-slate-600 mt-2">Resume paused pipelines from where they left off. Interactive selection with custom output overrides.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-600">
+          <code class="text-blue-600 font-mono font-bold">chef status</code>
+          <p class="text-slate-600 mt-2">Display pipeline status for all tracked sources. Shows running, paused, completed, and error states.</p>
+        </div>
+        <!-- Configuration Commands -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-600">
+          <code class="text-green-600 font-mono font-bold">chef init</code>
+          <p class="text-slate-600 mt-2">Initialize Backlog Chef in your project. Creates folder structure, templates, and configuration files.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-600">
+          <code class="text-green-600 font-mono font-bold">chef setup</code>
+          <p class="text-slate-600 mt-2">Interactive setup wizard for first-time configuration. API key testing and environment setup.</p>
+        </div>
+        <!-- Output Commands -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+          <code class="text-purple-600 font-mono font-bold">chef export</code>
+          <p class="text-slate-600 mt-2">Export PBIs to markdown files. Export by ID, source, or all pending with dry-run preview.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-600">
+          <code class="text-purple-600 font-mono font-bold">chef format</code>
+          <p class="text-slate-600 mt-2">Regenerate output in different formats (DevOps, Obsidian, Confluence) without reprocessing.</p>
+        </div>
+        <!-- RAG Commands -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-600">
+          <code class="text-yellow-600 font-mono font-bold">chef rag index</code>
+          <p class="text-slate-600 mt-2">Index documentation for semantic search. Uses ChromaDB with configurable chunking strategies.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-600">
+          <code class="text-yellow-600 font-mono font-bold">chef rag query</code>
+          <p class="text-slate-600 mt-2">Search indexed documents semantically. Natural language queries with configurable results.</p>
+        </div>
+        <!-- Validation -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-red-600">
+          <code class="text-red-600 font-mono font-bold">chef validate docs</code>
+          <p class="text-slate-600 mt-2">Validate documentation against frontmatter schema. Strict mode, warnings, and report generation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web Interface Section -->
+    <section id="web" class="bg-gradient-to-br from-blue-50 to-indigo-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+            Web Interface
+          </span>
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">Visual PBI Management</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            A modern Astro-powered web interface for browsing, searching, and managing your Product Backlog Items
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-3xl mb-4">📋</div>
+            <h3 class="text-xl font-bold mb-2 text-slate-900">PBI Browser</h3>
+            <p class="text-slate-600">Multi-view support with Table, Card Grid, and Kanban views. Filter by status, priority, and domain tags.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-3xl mb-4">🔍</div>
+            <h3 class="text-xl font-bold mb-2 text-slate-900">Semantic Search</h3>
+            <p class="text-slate-600">Search across all documentation including constraints, patterns, similar work, and tech docs.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-3xl mb-4">🎙️</div>
+            <h3 class="text-xl font-bold mb-2 text-slate-900">Meetings Browser</h3>
+            <p class="text-slate-600">Browse processed meetings with metadata, transcripts, and speaker identification.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-3xl mb-4">📝</div>
+            <h3 class="text-xl font-bold mb-2 text-slate-900">Transcript Viewer</h3>
+            <p class="text-slate-600">Full meeting transcripts with speaker identification and timestamp navigation.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-3xl mb-4">🗂️</div>
+            <h3 class="text-xl font-bold mb-2 text-slate-900">Domain Organization</h3>
+            <p class="text-slate-600">Browse PBIs by domain (authentication, pipeline, integration) with tag-based filtering.</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="text-3xl mb-4">⚙️</div>
+            <h3 class="text-xl font-bold mb-2 text-slate-900">Export Mapping</h3>
+            <p class="text-slate-600">Configure field mappings for different output formats with property mapping editor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RAG System Section -->
+    <section class="bg-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="inline-block bg-yellow-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+            Semantic Intelligence
+          </span>
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">RAG-Powered Context Enrichment</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            ChromaDB vector store with intelligent document indexing for powerful semantic search
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-lg border border-yellow-200">
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Specialized Search Endpoints</h3>
+            <ul class="space-y-3 text-slate-700">
+              <li class="flex items-start"><span class="text-yellow-600 mr-2">→</span> <strong>Constraints:</strong> ADRs, policies, binding decisions</li>
+              <li class="flex items-start"><span class="text-yellow-600 mr-2">→</span> <strong>Patterns:</strong> Architectural and design patterns</li>
+              <li class="flex items-start"><span class="text-yellow-600 mr-2">→</span> <strong>Similar Work:</strong> Completed PBIs and related items</li>
+              <li class="flex items-start"><span class="text-yellow-600 mr-2">→</span> <strong>Tech Docs:</strong> Technical documentation</li>
+              <li class="flex items-start"><span class="text-yellow-600 mr-2">→</span> <strong>Business:</strong> Business documentation</li>
+              <li class="flex items-start"><span class="text-yellow-600 mr-2">→</span> <strong>Examples:</strong> Code and implementation examples</li>
+              <li class="flex items-start"><span class="text-yellow-600 mr-2">→</span> <strong>Deprecated:</strong> Deprecated patterns to avoid</li>
+            </ul>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Frontmatter-Based Filtering</h3>
+            <p class="text-slate-700 mb-4">All documents use YAML frontmatter for intelligent filtering:</p>
+            <pre class="bg-slate-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto"><code>type: adr | policy | architecture
+status: active | draft | deprecated
+domain: [authentication, pipeline]
+decision_type: constraint | pattern
+keywords: [explicit, search, terms]</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Configuration Section -->
+    <section class="bg-slate-100 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-slate-900 mb-4">Configuration-Driven Design</h2>
+          <p class="text-slate-600 max-w-2xl mx-auto">
+            Customize every aspect of Backlog Chef to match your team's workflows
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Workflow Profiles</h3>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              <li>• refinement.yaml - Standard refinement</li>
+              <li>• refinement-minimal.yaml - Lightweight</li>
+              <li>• refinement-full.yaml - All features</li>
+              <li>• refinement-risk-focused.yaml - Risk emphasis</li>
+              <li>• refinement-questions-only.yaml - Questions focus</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Definition of Ready</h3>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              <li>• Team-specific DoR configurations</li>
+              <li>• Multi-role workflows</li>
+              <li>• Customizable criteria</li>
+              <li>• Enforcement levels (critical, high, medium)</li>
+              <li>• Localization support</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Output Formats</h3>
+            <ul class="space-y-2 text-slate-600 text-sm">
+              <li>• DevOps - Azure DevOps work items</li>
+              <li>• Obsidian - Markdown with wiki links</li>
+              <li>• Confluence - Wiki-ready format</li>
+              <li>• JSON - Raw structured data</li>
+              <li>• Markdown - Standard documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Section -->
     <section id="features" class="bg-white py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">Core Features</h2>
+        <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">Core Intelligence Features</h2>
         <div class="grid md:grid-cols-2 gap-8">
           <div class="border-l-4 border-blue-600 pl-6 py-4">
             <h3 class="text-xl font-bold mb-2 text-slate-900">Context & Historical Intelligence</h3>
@@ -105,6 +354,43 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <!-- Integrations Section -->
+    <section class="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-12">Integrations & MCP</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <div class="text-3xl mb-4">🎙️</div>
+            <h3 class="text-lg font-bold mb-2">Fireflies.ai</h3>
+            <p class="text-slate-400 text-sm">Automatic meeting transcript fetching with speaker identification and analytics</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <div class="text-3xl mb-4">🔷</div>
+            <h3 class="text-lg font-bold mb-2">Azure DevOps</h3>
+            <p class="text-slate-400 text-sm">Work items, PRs, builds, wikis via MCP for seamless integration</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <div class="text-3xl mb-4">🔵</div>
+            <h3 class="text-lg font-bold mb-2">Atlassian</h3>
+            <p class="text-slate-400 text-sm">Confluence & Jira integration via MCP for project documentation</p>
+          </div>
+          <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+            <div class="text-3xl mb-4">💜</div>
+            <h3 class="text-lg font-bold mb-2">Obsidian</h3>
+            <p class="text-slate-400 text-sm">Export with wiki links for personal knowledge management</p>
+          </div>
+        </div>
+        <div class="mt-12 text-center">
+          <div class="inline-block bg-slate-700 px-6 py-4 rounded-lg">
+            <h3 class="text-lg font-bold mb-2">Model Context Protocol (MCP)</h3>
+            <p class="text-slate-400 text-sm max-w-xl">
+              Standardized interface for external data access. Community-maintained servers reduce custom API maintenance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Pricing Section -->
     <section id="pricing" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">Simple, Transparent Pricing</h2>
@@ -115,6 +401,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="space-y-3 mb-6 text-slate-600">
             <li>✓ 1 team</li>
             <li>✓ 50 meetings/month</li>
+            <li>✓ CLI access</li>
             <li>✓ Basic features</li>
             <li>✓ Email support</li>
           </ul>
@@ -127,7 +414,8 @@ import Layout from '../layouts/Layout.astro';
           <ul class="space-y-3 mb-6 text-slate-600">
             <li>✓ 3 teams</li>
             <li>✓ 200 meetings/month</li>
-            <li>✓ All features</li>
+            <li>✓ CLI + Web interface</li>
+            <li>✓ All features + RAG</li>
             <li>✓ Priority support</li>
           </ul>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">Get Started</button>
@@ -138,6 +426,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="space-y-3 mb-6 text-slate-600">
             <li>✓ Unlimited teams</li>
             <li>✓ Unlimited meetings</li>
+            <li>✓ Full platform access</li>
             <li>✓ Advanced analytics</li>
             <li>✓ Dedicated support</li>
           </ul>
@@ -149,6 +438,7 @@ import Layout from '../layouts/Layout.astro';
           <ul class="space-y-3 mb-6 text-slate-600">
             <li>✓ On-premise option</li>
             <li>✓ SSO & compliance</li>
+            <li>✓ Custom MCP servers</li>
             <li>✓ Custom integrations</li>
             <li>✓ 24/7 support</li>
           </ul>
@@ -192,7 +482,7 @@ import Layout from '../layouts/Layout.astro';
           Start Free Trial
         </a>
         <a href="/docs" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
-          Learn More
+          View Full Documentation
         </a>
       </div>
     </section>
