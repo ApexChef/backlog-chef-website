@@ -1,0 +1,96 @@
+---
+import { getLangFromUrl, getLocalizedPath } from '../../i18n/ui';
+
+interface Props {
+  variant?: 'full' | 'text';
+  theme?: 'light' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+  showTagline?: boolean;
+  linkToHome?: boolean;
+}
+
+const {
+  variant = 'text',
+  theme = 'light',
+  size = 'md',
+  showTagline = false,
+  linkToHome = true
+} = Astro.props;
+
+const currentLang = getLangFromUrl(Astro.url);
+const homeUrl = getLocalizedPath('/', currentLang);
+
+// Text colors based on theme
+const textColor = theme === 'dark' ? 'text-cream-100' : 'text-sage-800';
+const taglineColor = theme === 'dark' ? 'text-cream-300' : 'text-sage-600';
+
+// Size classes
+const sizes = {
+  sm: {
+    text: 'text-xl',
+    tagline: 'text-xs'
+  },
+  md: {
+    text: 'text-2xl',
+    tagline: 'text-sm'
+  },
+  lg: {
+    text: 'text-3xl',
+    tagline: 'text-base'
+  }
+};
+
+const logoSrc = theme === 'dark'
+  ? '/images/logo/apex-chef-transparent.svg'
+  : '/images/logo/apex-chef-color.svg';
+
+const logoHeight = {
+  sm: 'h-8',
+  md: 'h-10',
+  lg: 'h-14'
+};
+---
+
+{linkToHome ? (
+  <a href={homeUrl} class="flex items-center gap-3 group">
+    {variant === 'full' ? (
+      <img
+        src={logoSrc}
+        alt="Apex Chef - Satisfy your Salesforce Appetite"
+        class:list={[logoHeight[size], 'w-auto']}
+      />
+    ) : (
+      <div class="flex flex-col">
+        <span class:list={['font-bold tracking-tight', sizes[size].text, textColor, 'group-hover:opacity-80 transition-opacity']}>
+          Backlog Chef
+        </span>
+        {showTagline && (
+          <span class:list={[sizes[size].tagline, taglineColor, 'hidden sm:block']}>
+            by Apex Chef
+          </span>
+        )}
+      </div>
+    )}
+  </a>
+) : (
+  <div class="flex items-center gap-3">
+    {variant === 'full' ? (
+      <img
+        src={logoSrc}
+        alt="Apex Chef - Satisfy your Salesforce Appetite"
+        class:list={[logoHeight[size], 'w-auto']}
+      />
+    ) : (
+      <div class="flex flex-col">
+        <span class:list={['font-bold tracking-tight', sizes[size].text, textColor]}>
+          Backlog Chef
+        </span>
+        {showTagline && (
+          <span class:list={[sizes[size].tagline, taglineColor, 'hidden sm:block']}>
+            by Apex Chef
+          </span>
+        )}
+      </div>
+    )}
+  </div>
+)}

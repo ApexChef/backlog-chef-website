@@ -1,0 +1,1058 @@
+---
+// Pitch deck pagina - standalone presentatie (Nederlands)
+const lang = 'nl';
+---
+
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Backlog Chef - Investeerders Pitch</title>
+  <link rel="alternate" hreflang="en" href="https://backlogchef.com/en/pitch" />
+  <link rel="alternate" hreflang="nl" href="https://backlogchef.com/nl/pitch" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .slide {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 60px 80px;
+      position: relative;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 30px;
+      right: 40px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #3b82f6;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .lang-switch a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .lang-switch a.active {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .lang-switch a:hover:not(.active) {
+      color: white;
+    }
+
+    h1 {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 30px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #3b82f6;
+    }
+
+    h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .big-number {
+      font-size: 72px;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+
+    .highlight {
+      color: #3b82f6;
+    }
+
+    .warn {
+      color: #f59e0b;
+    }
+
+    .success {
+      color: #22c55e;
+    }
+
+    ul {
+      list-style: none;
+      font-size: 24px;
+      line-height: 2;
+    }
+
+    ul li::before {
+      content: "-> ";
+      color: #3b82f6;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      flex: 1;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      flex: 1;
+      align-items: start;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      flex: 1;
+      align-items: start;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 18px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+    }
+
+    .title-slide {
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    }
+
+    .title-slide h1 {
+      font-size: 72px;
+      margin-bottom: 20px;
+    }
+
+    .title-slide p {
+      font-size: 32px;
+      color: #e0e7ff;
+    }
+
+    .tagline {
+      font-size: 28px;
+      color: #93c5fd;
+      margin-top: 40px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 32px;
+      color: #f59e0b;
+      border-left: 4px solid #f59e0b;
+      padding-left: 30px;
+      margin: 30px 0;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 40px;
+      background: #1e293b;
+      border-radius: 16px;
+    }
+
+    .stat-box .number {
+      font-size: 56px;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+
+    .stat-box .label {
+      font-size: 20px;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+
+    .pipeline-step {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .pipeline-step .step-num {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #3b82f6;
+      border-radius: 50%;
+      line-height: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .pipeline-step h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .pipeline-step p {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .pricing-card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .pricing-card.popular {
+      border: 2px solid #3b82f6;
+      transform: scale(1.05);
+    }
+
+    .pricing-card h4 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .pricing-card .price {
+      font-size: 42px;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+
+    .pricing-card .price span {
+      font-size: 18px;
+      color: #94a3b8;
+    }
+
+    .pricing-card ul {
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .pricing-card ul li::before {
+      content: "* ";
+      color: #22c55e;
+    }
+
+    .competitor-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 18px;
+    }
+
+    .competitor-table th {
+      text-align: left;
+      padding: 15px;
+      background: #1e293b;
+      color: #3b82f6;
+    }
+
+    .competitor-table td {
+      padding: 15px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .competitor-table .check {
+      color: #22c55e;
+    }
+
+    .competitor-table .cross {
+      color: #ef4444;
+    }
+
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .timeline-item {
+      text-align: center;
+      flex: 1;
+      position: relative;
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: #3b82f6;
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    .timeline-dot {
+      width: 50px;
+      height: 50px;
+      background: #3b82f6;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot.done {
+      background: #22c55e;
+    }
+
+    .timeline-dot.current {
+      background: #f59e0b;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .cta-slide {
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+    }
+
+    .controls button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .controls button:hover {
+      background: #2563eb;
+    }
+
+    .controls button:disabled {
+      background: #475569;
+      cursor: not-allowed;
+    }
+
+    .ask-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .ask-item {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 16px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .ask-item h4 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #3b82f6;
+    }
+
+    .ask-item p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switch -->
+  <div class="lang-switch">
+    <a href="/en/pitch">EN</a>
+    <a href="/nl/pitch" class="active">NL</a>
+  </div>
+
+  <!-- Slide 1: Titel -->
+  <div class="slide title-slide active">
+    <div class="center">
+      <h1>Backlog Chef</h1>
+      <p>Transformeer Vergaderingen naar Hoogwaardige Product Backlogs</p>
+      <p class="tagline">AI-aangedreven intelligentie voor Scrum teams</p>
+    </div>
+    <div class="slide-number">1 / 17</div>
+  </div>
+
+  <!-- Slide 2: Het Probleem - Verhaal -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Het Probleem</h2>
+    <div class="grid-2">
+      <div>
+        <p class="quote">"We hebben net 2 uur in refinement gezeten, en ik heb nog steeds onvolledige PBIs zonder acceptance criteria..."</p>
+        <p style="margin-top: 30px;">Elk Scrum team kent deze pijn:</p>
+        <ul style="margin-top: 20px;">
+          <li>Lange refinement vergaderingen die energie kosten</li>
+          <li>PBIs die niet "ready" zijn voor sprint planning</li>
+          <li>Vragen die eerder gesteld hadden kunnen worden</li>
+          <li>Context verloren tussen vergaderingen</li>
+          <li>Dezelfde fouten herhaald over sprints</li>
+        </ul>
+      </div>
+      <div>
+        <div class="stat-box" style="margin-bottom: 30px;">
+          <div class="number">2-3 uur</div>
+          <div class="label">Gemiddelde refinement vergadering lengte</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">40%</div>
+          <div class="label">PBIs afgewezen bij sprint planning</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">2 / 17</div>
+  </div>
+
+  <!-- Slide 3: Probleem Verdieping -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Waarom Dit Gebeurt</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Geen Geheugen</h3>
+        <p>Teams vergeten eerdere beslissingen, vergelijkbaar werk en geleerde lessen. Elke refinement begint vanaf nul.</p>
+      </div>
+      <div class="card">
+        <h3>Geen Kwaliteitspoort</h3>
+        <p>Geen objectieve check tegen Definition of Ready. Onvolledige PBIs glippen door tot sprint planning.</p>
+      </div>
+      <div class="card">
+        <h3>Geen Context</h3>
+        <p>Ontbrekende links naar architectuur beslissingen, afhankelijkheden en stakeholder vereisten.</p>
+      </div>
+    </div>
+    <div style="margin-top: 60px; text-align: center;">
+      <p style="font-size: 28px;">Resultaat: <span class="warn">Verspilde tijd, gefrustreerde teams, lagere software kwaliteit</span></p>
+    </div>
+    <div class="slide-number">3 / 17</div>
+  </div>
+
+  <!-- Slide 4: De Oplossing -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>De Oplossing: Backlog Chef</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Een AI systeem dat vergadertranscripten transformeert naar hoogwaardige PBIs</h3>
+        <ul style="margin-top: 30px;">
+          <li><span class="highlight">Automatische extractie</span> uit vergadertranscripten</li>
+          <li><span class="highlight">Kwaliteitsscore</span> tegen Definition of Ready</li>
+          <li><span class="highlight">Context verrijking</span> uit je documentatie</li>
+          <li><span class="highlight">Slimme vragen</span> met voorgestelde antwoorden</li>
+          <li><span class="highlight">Risico detectie</span> voor sprint planning</li>
+        </ul>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 120px; margin-bottom: 30px;">&#127859;</div>
+        <p style="font-size: 20px; color: #94a3b8;">Van rauw transcript naar sprint-ready PBIs</p>
+      </div>
+    </div>
+    <div class="slide-number">4 / 17</div>
+  </div>
+
+  <!-- Slide 5: Hoe Het Werkt - Pipeline -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>8-Stappen Intelligentie Pipeline</h2>
+    <div class="grid-4" style="margin-top: 20px;">
+      <div class="pipeline-step">
+        <div class="step-num">1</div>
+        <h4>Event Detectie</h4>
+        <p>Identificeer vergadertype</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">2</div>
+        <h4>Extraheer PBIs</h4>
+        <p>Parse kandidaten uit transcript</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">3</div>
+        <h4>Score Kwaliteit</h4>
+        <p>Evalueer volledigheid</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">4</div>
+        <h4>Verrijk Context</h4>
+        <p>Vind vergelijkbaar werk & docs</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">5</div>
+        <h4>Check Risico's</h4>
+        <p>Detecteer afhankelijkheden</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">6</div>
+        <h4>Genereer Vragen</h4>
+        <p>Slimme Q&A met voorstellen</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">7</div>
+        <h4>Gereedheidscheck</h4>
+        <p>Valideer tegen DoR</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">8</div>
+        <h4>Output</h4>
+        <p>Exporteer naar je tools</p>
+      </div>
+    </div>
+    <div style="margin-top: 50px; text-align: center;">
+      <p>Aangedreven door <span class="highlight">Claude AI</span> + <span class="highlight">RAG</span> (Retrieval-Augmented Generation)</p>
+    </div>
+    <div class="slide-number">5 / 17</div>
+  </div>
+
+  <!-- Slide 6: Product - CLI -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Product: Krachtige CLI</h2>
+    <div class="grid-2">
+      <div>
+        <div style="background: #0d1117; padding: 30px; border-radius: 12px; font-family: monospace;">
+          <p style="color: #7ee787; font-size: 18px;">$ chef process vergadering.txt</p>
+          <p style="color: #8b949e; font-size: 14px; margin-top: 10px;">-> Stap 1/8: Event type detecteren...</p>
+          <p style="color: #8b949e; font-size: 14px;">-> Stap 2/8: PBIs extraheren...</p>
+          <p style="color: #8b949e; font-size: 14px;">-> 5 kandidaat PBIs gevonden</p>
+          <p style="color: #8b949e; font-size: 14px;">-> Stap 3/8: Betrouwbaarheid scoren...</p>
+          <p style="color: #7ee787; font-size: 14px; margin-top: 10px;">* Pipeline compleet! 5 PBIs geexporteerd</p>
+        </div>
+        <p style="margin-top: 30px; font-size: 20px;">10 commando's voor volledige workflow controle</p>
+      </div>
+      <div>
+        <h3>Belangrijkste Commando's</h3>
+        <ul>
+          <li><code style="color: #7ee787;">chef process</code> - Voer de pipeline uit</li>
+          <li><code style="color: #7ee787;">chef resume</code> - Hervat gepauzeerd werk</li>
+          <li><code style="color: #7ee787;">chef status</code> - Bekijk alle pipelines</li>
+          <li><code style="color: #7ee787;">chef rag index</code> - Indexeer je docs</li>
+          <li><code style="color: #7ee787;">chef rag query</code> - Semantisch zoeken</li>
+          <li><code style="color: #7ee787;">chef export</code> - Output naar bestanden</li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-number">6 / 17</div>
+  </div>
+
+  <!-- Slide 7: Product - Web Interface -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Product: Web Interface</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>PBI Browser</h3>
+        <p>Tabel, Kaart & Kanban weergaven. Filter op status, prioriteit, domein.</p>
+      </div>
+      <div class="card">
+        <h3>Semantisch Zoeken</h3>
+        <p>Vind constraints, patronen, vergelijkbaar werk in alle docs.</p>
+      </div>
+      <div class="card">
+        <h3>Vergaderingen View</h3>
+        <p>Blader door transcripten, sprekers, geextraheerde PBIs.</p>
+      </div>
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <p>Gebouwd met <span class="highlight">Astro</span> + <span class="highlight">React</span> + <span class="highlight">TanStack Table</span></p>
+      <p style="color: #94a3b8; margin-top: 10px;">Modern, snel, developer-vriendelijk</p>
+    </div>
+    <div class="slide-number">7 / 17</div>
+  </div>
+
+  <!-- Slide 8: Belangrijkste Onderscheidingen -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Waarom Wij Anders Zijn</h2>
+    <div class="grid-3">
+      <div class="card" style="border-color: #22c55e;">
+        <h3>Domein-Specifiek</h3>
+        <p>Gebouwd voor Scrum/Agile. Geen generieke transcriptie. Begrijpt PBIs, acceptance criteria, DoR.</p>
+      </div>
+      <div class="card" style="border-color: #22c55e;">
+        <h3>Ingebouwde Kwaliteit</h3>
+        <p>Elke PBI gescoord en gevalideerd. Betrouwbaarheidsmetrics voorkomen dat onvolledige items sprints bereiken.</p>
+      </div>
+      <div class="card" style="border-color: #22c55e;">
+        <h3>Context-Bewust</h3>
+        <p>RAG-aangedreven zoeken vindt vergelijkbaar werk, eerdere beslissingen en technische constraints.</p>
+      </div>
+      <div class="card" style="border-color: #f59e0b;">
+        <h3>Lokaal-Eerst</h3>
+        <p>Je data blijft op je machine. API sleutels zijn van jou. Privacy by design.</p>
+      </div>
+      <div class="card" style="border-color: #f59e0b;">
+        <h3>Geintegreerd</h3>
+        <p>Fireflies, Azure DevOps, Jira, Confluence via MCP. Exporteer naar elk formaat.</p>
+      </div>
+      <div class="card" style="border-color: #f59e0b;">
+        <h3>Leert Over Tijd</h3>
+        <p>Indexeert je documentatie. Wordt slimmer met de patronen van je team.</p>
+      </div>
+    </div>
+    <div class="slide-number">8 / 17</div>
+  </div>
+
+  <!-- Slide 9: Markt Kans -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Markt Kans</h2>
+    <div class="grid-3">
+      <div class="stat-box">
+        <div class="number">$1.5B</div>
+        <div class="label">TAM: Agile tools markt (2024)</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">12M+</div>
+        <div class="label">Scrum beoefenaars wereldwijd</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">71%</div>
+        <div class="label">Bedrijven die Agile methoden gebruiken</div>
+      </div>
+    </div>
+    <div style="margin-top: 50px;">
+      <h3>Doelsegmenten</h3>
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card">
+          <h3>Software Teams</h3>
+          <p>10-100 devs, 2-3 uur/week bespaard. <span class="highlight">EUR500-5k/ma waarde</span></p>
+        </div>
+        <div class="card">
+          <h3>Enterprise</h3>
+          <p>Banken, Verzekeringen, Telecom. Compliance + audit trails. <span class="highlight">EUR5-50k/ma waarde</span></p>
+        </div>
+        <div class="card">
+          <h3>Consulting</h3>
+          <p>Multi-klant teams. Betere context switching. <span class="highlight">EUR1-10k/ma waarde</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">9 / 17</div>
+  </div>
+
+  <!-- Slide 10: Businessmodel -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Businessmodel</h2>
+    <div class="grid-4">
+      <div class="pricing-card">
+        <h4>Starter</h4>
+        <div class="price">EUR49<span>/ma</span></div>
+        <ul>
+          <li>1 team</li>
+          <li>50 vergaderingen/ma</li>
+          <li>CLI toegang</li>
+          <li>E-mail support</li>
+        </ul>
+      </div>
+      <div class="pricing-card popular">
+        <h4>Pro</h4>
+        <div class="price">EUR149<span>/ma</span></div>
+        <ul>
+          <li>3 teams</li>
+          <li>200 vergaderingen/ma</li>
+          <li>CLI + Web</li>
+          <li>RAG + Prioriteit support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h4>Business</h4>
+        <div class="price">EUR499<span>/ma</span></div>
+        <ul>
+          <li>Onbeperkt teams</li>
+          <li>Onbeperkt vergaderingen</li>
+          <li>Volledig platform</li>
+          <li>Dedicated support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h4>Enterprise</h4>
+        <div class="price">Op Maat</div>
+        <ul>
+          <li>On-premise</li>
+          <li>SSO & compliance</li>
+          <li>Custom MCP</li>
+          <li>24/7 support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <p>Verdienmodel: <span class="highlight">SaaS abonnement</span> | Doel: <span class="success">EUR10k MRR in Jaar 1</span></p>
+    </div>
+    <div class="slide-number">10 / 17</div>
+  </div>
+
+  <!-- Slide 11: Concurrentie -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Concurrentielandschap</h2>
+    <table class="competitor-table">
+      <tr>
+        <th>Functie</th>
+        <th>Backlog Chef</th>
+        <th>Otter.ai</th>
+        <th>Fireflies</th>
+        <th>Jira + AI</th>
+      </tr>
+      <tr>
+        <td>Vergadering transcriptie</td>
+        <td class="check">* (via Fireflies)</td>
+        <td class="check">*</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>PBI extractie</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Kwaliteitsscore (DoR)</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Context verrijking (RAG)</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Risico detectie</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Agile-specifieke intelligentie</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td style="color: #f59e0b;">Deels</td>
+      </tr>
+    </table>
+    <div style="margin-top: 30px; text-align: center;">
+      <p><span class="highlight">We concurreren niet met transcriptie tools - we completeren ze.</span></p>
+    </div>
+    <div class="slide-number">11 / 17</div>
+  </div>
+
+  <!-- Slide 12: Tractie & Roadmap -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Tractie & Roadmap</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot done">*</div>
+        <h3>MVP Gebouwd</h3>
+        <p>10 CLI commando's<br>8-stappen pipeline<br>RAG systeem</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot done">*</div>
+        <h3>Web Interface</h3>
+        <p>PBI browser<br>Semantisch zoeken<br>Vergaderingen view</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot current">-></div>
+        <h3>Beta Launch</h3>
+        <p>Eerste pilot gebruikers<br>Feedback loop<br>Kwaliteitsverbeteringen</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <h3>Publieke Launch</h3>
+        <p>Marketing site<br>Prijzen live<br>Self-service onboarding</p>
+      </div>
+    </div>
+    <div style="margin-top: 60px;">
+      <h3>Huidige Status</h3>
+      <ul>
+        <li>Werkende MVP met volledige 8-stappen pipeline</li>
+        <li>50+ documentatie bestanden voor architectuur</li>
+        <li>23 PBIs gepland met PACT framework</li>
+        <li>Klaar voor pilot klant validatie</li>
+      </ul>
+    </div>
+    <div class="slide-number">12 / 17</div>
+  </div>
+
+  <!-- Slide 13: Go-to-Market -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Go-to-Market: Waarom Cronos?</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Ingebouwd Klanten Netwerk</h3>
+        <p style="margin-bottom: 30px;">Cronos beheert <span class="highlight">meerdere software bedrijven</span> - elk met dev teams die Scrum draaien.</p>
+        <div class="card" style="margin-bottom: 20px; border-color: #22c55e;">
+          <h3>Fase 1: Interne Pilots</h3>
+          <p>Pilot met 2-3 Cronos portfolio bedrijven. Echte feedback, echte validatie, geen koude acquisitie.</p>
+        </div>
+        <div class="card" style="border-color: #3b82f6;">
+          <h3>Fase 2: Uitbreiden & Verfijnen</h3>
+          <p>Gebruik case studies van Cronos bedrijven om externe markt te bereiken met bewezen resultaten.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Waarom Dit Partnerschap Werkt</h3>
+        <ul>
+          <li>Directe toegang tot pilot klanten</li>
+          <li>Echte Scrum teams met echte pijn</li>
+          <li>Snelle feedback loops</li>
+          <li>Case studies vanaf dag een</li>
+          <li>Warme intro's naar andere bedrijven</li>
+        </ul>
+        <div class="stat-box" style="margin-top: 40px;">
+          <div class="number">-></div>
+          <div class="label">Jullie hebben de klanten.<br>Ik heb de oplossing.</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">13 / 17</div>
+  </div>
+
+  <!-- Slide 14: Team -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>De Oprichter</h2>
+    <div class="grid-2">
+      <div style="text-align: center;">
+        <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 72px;">&#128104;&#8205;&#128187;</div>
+        <h3 style="font-size: 32px;">Alwin</h3>
+        <p style="color: #3b82f6;">Oprichter & Developer</p>
+      </div>
+      <div>
+        <h3>Achtergrond</h3>
+        <ul>
+          <li><span class="highlight">Salesforce/Apex Developer</span> - Enterprise ervaring</li>
+          <li><span class="highlight">Proces Expert</span> - Diepgaande Scrum/Agile kennis</li>
+          <li><span class="highlight">Full-Stack Bouwer</span> - TypeScript, Node.js, React</li>
+          <li><span class="highlight">AI/LLM Ervaring</span> - Claude API, RAG systemen</li>
+        </ul>
+        <h3 style="margin-top: 40px;">Waarom Ik?</h3>
+        <p style="font-size: 20px;">Ik heb deze pijn geleefd. Als developer in Scrum teams jarenlang, heb ik talloze uren zien verspillen in refinement. Ik bouwde BacklogChef om mijn eigen probleem op te lossen - en dat van elk team.</p>
+      </div>
+    </div>
+    <div class="slide-number">14 / 17</div>
+  </div>
+
+  <!-- Slide 15: Waarom Nu -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Waarom Nu?</h2>
+    <div class="grid-2">
+      <div>
+        <div class="card" style="margin-bottom: 30px; border-color: #22c55e;">
+          <h3>AI Mogelijkheden Zijn Volwassen</h3>
+          <p>LLMs zoals Claude kunnen nu context begrijpen, gestructureerde data extraheren en redeneren over software development. Dit was 2 jaar geleden niet mogelijk.</p>
+        </div>
+        <div class="card" style="border-color: #3b82f6;">
+          <h3>RAG Technologie Klaar</h3>
+          <p>Vector databases (ChromaDB, Pinecone) maken semantisch zoeken toegankelijk. We kunnen nu AI verbinden met de kennis van je team.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 30px; border-color: #f59e0b;">
+          <h3>Remote Werk Versneld</h3>
+          <p>Meer async vergaderingen = meer behoefte aan gestructureerde documentatie. Teams kunnen niet meer vertrouwen op "in de kamer zijn".</p>
+        </div>
+        <div class="card" style="border-color: #8b5cf6;">
+          <h3>Agile Adoptie Groeit</h3>
+          <p>71% van bedrijven gebruikt Agile. De markt is enorm en onderbediend door intelligente tooling.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">15 / 17</div>
+  </div>
+
+  <!-- Slide 16: De Vraag -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Wat We Zoeken</h2>
+    <div class="ask-list">
+      <div class="ask-item">
+        <h4>Mentorschap</h4>
+        <p>GTM strategie, prijsvalidatie, eerste klant acquisitie playbook</p>
+      </div>
+      <div class="ask-item">
+        <h4>Netwerk Toegang</h4>
+        <p>Introducties naar Scrum Masters, Agile coaches en enterprise dev teams</p>
+      </div>
+      <div class="ask-item">
+        <h4>Technische Begeleiding</h4>
+        <p>Schaalbare architectuur, security best practices, enterprise readiness</p>
+      </div>
+      <div class="ask-item">
+        <h4>Financiering</h4>
+        <p>Seed kapitaal om fulltime te focussen en eerste teamleden aan te nemen</p>
+      </div>
+    </div>
+    <div style="margin-top: 50px; text-align: center;">
+      <p style="font-size: 24px;">Klaar om de accelerator te joinen en <span class="highlight">samen iets groots te koken</span>.</p>
+    </div>
+    <div class="slide-number">16 / 17</div>
+  </div>
+
+  <!-- Slide 17: Bedankt -->
+  <div class="slide cta-slide">
+    <div class="center">
+      <h1 style="font-size: 64px;">Bedankt</h1>
+      <p style="font-size: 28px; margin-top: 20px;">Laten we transformeren hoe teams backlogs maken.</p>
+      <div style="margin-top: 60px; display: flex; gap: 40px;">
+        <div>
+          <p style="color: #93c5fd; font-size: 18px;">Website</p>
+          <p style="font-size: 24px;">backlogchef.com</p>
+        </div>
+        <div>
+          <p style="color: #93c5fd; font-size: 18px;">E-mail</p>
+          <p style="font-size: 24px;">alwin@apexchef.com</p>
+        </div>
+        <div>
+          <p style="color: #93c5fd; font-size: 18px;">GitHub</p>
+          <p style="font-size: 24px;">github.com/ApexChef</p>
+        </div>
+      </div>
+      <p class="tagline" style="margin-top: 60px;">Vragen?</p>
+    </div>
+    <div class="slide-number">17 / 17</div>
+  </div>
+
+  <!-- Navigatie Knoppen -->
+  <div class="controls">
+    <button id="prevBtn" disabled>&#8592; Vorige</button>
+    <button id="nextBtn">Volgende &#8594;</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slides.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        showSlide(currentSlide);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+    });
+
+    // Toetsenbord navigatie
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        if (currentSlide < slides.length - 1) {
+          currentSlide++;
+          showSlide(currentSlide);
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (currentSlide > 0) {
+          currentSlide--;
+          showSlide(currentSlide);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,685 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
+import Badge from '../../components/ui/Badge.astro';
+import Card from '../../components/ui/Card.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+
+const lang = 'nl';
+const t = useTranslations(lang);
+---
+
+<Layout title="Backlog Chef - AI-Aangedreven Backlog Intelligentie" lang={lang}>
+  <main>
+    <!-- Hero Section - Deep Plum with Amber Glow -->
+    <section class="relative overflow-hidden bg-hero-gradient text-white">
+      <!-- Ambient glow effects -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-mauve-400/15 rounded-full blur-3xl"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+        <div class="text-center">
+          <div class="mb-6">
+            <span class="inline-block bg-amber-400/20 text-amber-300 px-4 py-2 rounded-full text-sm font-semibold border border-amber-400/30">
+              {t('hero.badge')}
+            </span>
+          </div>
+          <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            {t('hero.title')}<br />
+            <span class="text-gradient-amber">{t('hero.titleHighlight')}</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-mauve-200 mb-10 max-w-3xl mx-auto leading-relaxed">
+            {t('hero.description')}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#cli" class="bg-amber-400 text-plum-900 px-8 py-4 rounded-lg font-bold hover:bg-amber-300 transition shadow-lg hover:shadow-amber-400/25 glow-amber">
+              {t('hero.exploreCli')}
+            </a>
+            <a href="#web" class="border-2 border-mauve-400 text-mauve-200 px-8 py-4 rounded-lg font-semibold hover:bg-mauve-400/10 transition">
+              {t('hero.viewWeb')}
+            </a>
+            <a href="/nl/docs" class="border-2 border-mauve-400/50 text-mauve-300 px-8 py-4 rounded-lg font-semibold hover:bg-mauve-400/10 transition">
+              {t('hero.documentation')}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-warm-50 to-transparent"></div>
+    </section>
+
+    <!-- Key Differentiators -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-warm-50">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-warm-900 mb-4">{t('why.title')}</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-mauve-300 hover:shadow-brand-lg transition">
+          <div class="w-14 h-14 bg-plum-800 rounded-xl flex items-center justify-center text-2xl mb-5">&#127919;</div>
+          <h3 class="text-xl font-bold mb-3 text-warm-900">{t('why.domainSpecific.title')}</h3>
+          <p class="text-warm-600">{t('why.domainSpecific.description')}</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-mauve-300 hover:shadow-brand-lg transition">
+          <div class="w-14 h-14 bg-plum-800 rounded-xl flex items-center justify-center text-2xl mb-5">&#9989;</div>
+          <h3 class="text-xl font-bold mb-3 text-warm-900">{t('why.qualityBuiltIn.title')}</h3>
+          <p class="text-warm-600">{t('why.qualityBuiltIn.description')}</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-mauve-300 hover:shadow-brand-lg transition">
+          <div class="w-14 h-14 bg-plum-800 rounded-xl flex items-center justify-center text-2xl mb-5">&#9889;</div>
+          <h3 class="text-xl font-bold mb-3 text-warm-900">{t('why.actionable.title')}</h3>
+          <p class="text-warm-600">{t('why.actionable.description')}</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-mauve-300 hover:shadow-brand-lg transition">
+          <div class="w-14 h-14 bg-plum-800 rounded-xl flex items-center justify-center text-2xl mb-5">&#128279;</div>
+          <h3 class="text-xl font-bold mb-3 text-warm-900">{t('why.integrated.title')}</h3>
+          <p class="text-warm-600">{t('why.integrated.description')}</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-mauve-300 hover:shadow-brand-lg transition">
+          <div class="w-14 h-14 bg-plum-800 rounded-xl flex items-center justify-center text-2xl mb-5">&#128269;</div>
+          <h3 class="text-xl font-bold mb-3 text-warm-900">{t('why.semanticSearch.title')}</h3>
+          <p class="text-warm-600">{t('why.semanticSearch.description')}</p>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-mauve-300 hover:shadow-brand-lg transition">
+          <div class="w-14 h-14 bg-plum-800 rounded-xl flex items-center justify-center text-2xl mb-5">&#128640;</div>
+          <h3 class="text-xl font-bold mb-3 text-warm-900">{t('why.cliWeb.title')}</h3>
+          <p class="text-warm-600">{t('why.cliWeb.description')}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roles Section - Deep Plum Background -->
+    <section id="roles" class="bg-hero-gradient text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold mb-4">{t('roles.title')}</h2>
+          <p class="text-xl text-mauve-200 max-w-3xl mx-auto">{t('roles.subtitle')}</p>
+        </div>
+
+        <!-- Scrum Team -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-amber-300">{t('roles.scrumTeam')}</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Product Owner -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-mauve-400/30 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#128100;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.po.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.po.pain1')}</li>
+                <li>&#10060; {t('roles.po.pain2')}</li>
+                <li>&#10060; {t('roles.po.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.po.benefit')}</p>
+            </div>
+            <!-- Scrum Master -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-mauve-400/30 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#127942;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.sm.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.sm.pain1')}</li>
+                <li>&#10060; {t('roles.sm.pain2')}</li>
+                <li>&#10060; {t('roles.sm.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.sm.benefit')}</p>
+            </div>
+            <!-- Developer -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-mauve-400/30 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#128187;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.dev.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.dev.pain1')}</li>
+                <li>&#10060; {t('roles.dev.pain2')}</li>
+                <li>&#10060; {t('roles.dev.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.dev.benefit')}</p>
+            </div>
+            <!-- Architect -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-mauve-400/30 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#127959;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.arch.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.arch.pain1')}</li>
+                <li>&#10060; {t('roles.arch.pain2')}</li>
+                <li>&#10060; {t('roles.arch.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.arch.benefit')}</p>
+            </div>
+            <!-- Tester -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-mauve-400/30 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#128270;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.tester.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.tester.pain1')}</li>
+                <li>&#10060; {t('roles.tester.pain2')}</li>
+                <li>&#10060; {t('roles.tester.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.tester.benefit')}</p>
+            </div>
+            <!-- UX Designer -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-mauve-400/30 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#127912;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.ux.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.ux.pain1')}</li>
+                <li>&#10060; {t('roles.ux.pain2')}</li>
+                <li>&#10060; {t('roles.ux.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.ux.benefit')}</p>
+            </div>
+            <!-- Business Analyst -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-mauve-400/30 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#128202;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.ba.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.ba.pain1')}</li>
+                <li>&#10060; {t('roles.ba.pain2')}</li>
+                <li>&#10060; {t('roles.ba.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.ba.benefit')}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stakeholders & Experts -->
+        <div class="mb-16">
+          <h3 class="text-2xl font-bold mb-8 text-center text-mauve-300">{t('roles.stakeholders')}</h3>
+          <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- Business Stakeholder -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-amber-400/20 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#128188;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.stakeholder.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.stakeholder.pain1')}</li>
+                <li>&#10060; {t('roles.stakeholder.pain2')}</li>
+                <li>&#10060; {t('roles.stakeholder.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.stakeholder.benefit')}</p>
+            </div>
+            <!-- Privacy Officer -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-amber-400/20 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#128274;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.privacy.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.privacy.pain1')}</li>
+                <li>&#10060; {t('roles.privacy.pain2')}</li>
+                <li>&#10060; {t('roles.privacy.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.privacy.benefit')}</p>
+            </div>
+            <!-- Security Expert -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-amber-400/20 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#128737;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.security.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.security.pain1')}</li>
+                <li>&#10060; {t('roles.security.pain2')}</li>
+                <li>&#10060; {t('roles.security.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.security.benefit')}</p>
+            </div>
+            <!-- Enterprise Architect -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-amber-400/20 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#127970;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.enterprise.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.enterprise.pain1')}</li>
+                <li>&#10060; {t('roles.enterprise.pain2')}</li>
+                <li>&#10060; {t('roles.enterprise.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.enterprise.benefit')}</p>
+            </div>
+            <!-- Legal / Compliance -->
+            <div class="bg-white/5 backdrop-blur p-6 rounded-xl border border-amber-400/20 hover:border-amber-400/50 transition">
+              <div class="text-3xl mb-3">&#9878;</div>
+              <h4 class="text-lg font-bold mb-3 text-white">{t('roles.legal.title')}</h4>
+              <ul class="text-sm text-mauve-200 space-y-1 mb-4">
+                <li>&#10060; {t('roles.legal.pain1')}</li>
+                <li>&#10060; {t('roles.legal.pain2')}</li>
+                <li>&#10060; {t('roles.legal.pain3')}</li>
+              </ul>
+              <p class="text-sm text-amber-300">&#10004; {t('roles.legal.benefit')}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How It Works -->
+        <div class="bg-white/5 backdrop-blur rounded-2xl p-8 border border-mauve-400/20">
+          <h3 class="text-2xl font-bold mb-6 text-center">{t('roles.howItWorks')}</h3>
+          <div class="grid md:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-amber-400 text-plum-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+              <p class="text-sm text-mauve-200">{t('roles.howItWorks.step1')}</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-amber-400 text-plum-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+              <p class="text-sm text-mauve-200">{t('roles.howItWorks.step2')}</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-amber-400 text-plum-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+              <p class="text-sm text-mauve-200">{t('roles.howItWorks.step3')}</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-amber-400 text-plum-900 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+              <p class="text-sm text-mauve-200">{t('roles.howItWorks.step4')}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8-Step Pipeline - Mauve Background -->
+    <section id="pipeline" class="bg-mauve-100 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-4 text-warm-900">{t('pipeline.title')}</h2>
+        <p class="text-warm-600 text-center mb-12 max-w-2xl mx-auto">
+          {t('pipeline.description')}
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-lg border-t-4 border-plum-700 shadow-brand">
+            <div class="text-plum-700 font-bold text-sm mb-2">Stap 1</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step1.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step1.description')}</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg border-t-4 border-plum-700 shadow-brand">
+            <div class="text-plum-700 font-bold text-sm mb-2">Stap 2</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step2.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step2.description')}</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg border-t-4 border-amber-400 shadow-brand">
+            <div class="text-amber-600 font-bold text-sm mb-2">Stap 3</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step3.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step3.description')}</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg border-t-4 border-amber-400 shadow-brand">
+            <div class="text-amber-600 font-bold text-sm mb-2">Stap 4</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step4.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step4.description')}</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg border-t-4 border-mauve-400 shadow-brand">
+            <div class="text-mauve-400 font-bold text-sm mb-2">Stap 5</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step5.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step5.description')}</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg border-t-4 border-mauve-400 shadow-brand">
+            <div class="text-mauve-400 font-bold text-sm mb-2">Stap 6</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step6.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step6.description')}</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg border-t-4 border-plum-500 shadow-brand">
+            <div class="text-plum-500 font-bold text-sm mb-2">Stap 7</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step7.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step7.description')}</p>
+          </div>
+          <div class="bg-white p-6 rounded-lg border-t-4 border-plum-500 shadow-brand">
+            <div class="text-plum-500 font-bold text-sm mb-2">Stap 8</div>
+            <h3 class="text-lg font-bold mb-2 text-warm-900">{t('pipeline.step8.title')}</h3>
+            <p class="text-warm-600 text-sm">{t('pipeline.step8.description')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLI Section -->
+    <section id="cli" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-12">
+        <span class="inline-block bg-plum-800 text-mauve-200 px-4 py-2 rounded-full text-sm font-semibold">{t('cli.badge')}</span>
+        <h2 class="text-4xl font-bold text-warm-900 mb-4 mt-4">{t('cli.title')}</h2>
+        <p class="text-warm-600 max-w-2xl mx-auto">
+          {t('cli.description')}
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Processing Commands -->
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-plum-700 hover:shadow-brand-lg transition">
+          <code class="text-plum-700 font-mono font-bold">chef process</code>
+          <p class="text-warm-600 mt-2">{t('cli.process.description')}</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-plum-700 hover:shadow-brand-lg transition">
+          <code class="text-plum-700 font-mono font-bold">chef resume</code>
+          <p class="text-warm-600 mt-2">{t('cli.resume.description')}</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-plum-700 hover:shadow-brand-lg transition">
+          <code class="text-plum-700 font-mono font-bold">chef status</code>
+          <p class="text-warm-600 mt-2">{t('cli.status.description')}</p>
+        </div>
+        <!-- Configuration Commands -->
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-amber-400 hover:shadow-brand-lg transition">
+          <code class="text-warm-800 font-mono font-bold">chef init</code>
+          <p class="text-warm-600 mt-2">{t('cli.init.description')}</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-amber-400 hover:shadow-brand-lg transition">
+          <code class="text-warm-800 font-mono font-bold">chef setup</code>
+          <p class="text-warm-600 mt-2">{t('cli.setup.description')}</p>
+        </div>
+        <!-- Output Commands -->
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-mauve-400 hover:shadow-brand-lg transition">
+          <code class="text-warm-800 font-mono font-bold">chef export</code>
+          <p class="text-warm-600 mt-2">{t('cli.export.description')}</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-mauve-400 hover:shadow-brand-lg transition">
+          <code class="text-warm-800 font-mono font-bold">chef format</code>
+          <p class="text-warm-600 mt-2">{t('cli.format.description')}</p>
+        </div>
+        <!-- RAG Commands -->
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-plum-500 hover:shadow-brand-lg transition">
+          <code class="text-warm-800 font-mono font-bold">chef rag index</code>
+          <p class="text-warm-600 mt-2">{t('cli.ragIndex.description')}</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-plum-500 hover:shadow-brand-lg transition">
+          <code class="text-warm-800 font-mono font-bold">chef rag query</code>
+          <p class="text-warm-600 mt-2">{t('cli.ragQuery.description')}</p>
+        </div>
+        <!-- Validation -->
+        <div class="bg-white p-6 rounded-xl shadow-brand border-l-4 border-warm-600 hover:shadow-brand-lg transition">
+          <code class="text-warm-800 font-mono font-bold">chef validate docs</code>
+          <p class="text-warm-600 mt-2">{t('cli.validateDocs.description')}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web Interface Section -->
+    <section id="web" class="bg-gradient-to-br from-mauve-100 to-mauve-200 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="inline-block bg-plum-700 text-mauve-100 px-4 py-2 rounded-full text-sm font-semibold">{t('web.badge')}</span>
+          <h2 class="text-4xl font-bold text-warm-900 mb-4 mt-4">{t('web.title')}</h2>
+          <p class="text-warm-600 max-w-2xl mx-auto">
+            {t('web.description')}
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-mauve-200 hover:shadow-brand-lg transition">
+            <div class="text-3xl mb-4">&#128203;</div>
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('web.pbiBrowser.title')}</h3>
+            <p class="text-warm-600">{t('web.pbiBrowser.description')}</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-mauve-200 hover:shadow-brand-lg transition">
+            <div class="text-3xl mb-4">&#128269;</div>
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('web.semanticSearch.title')}</h3>
+            <p class="text-warm-600">{t('web.semanticSearch.description')}</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-mauve-200 hover:shadow-brand-lg transition">
+            <div class="text-3xl mb-4">&#127897;</div>
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('web.meetingsBrowser.title')}</h3>
+            <p class="text-warm-600">{t('web.meetingsBrowser.description')}</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-mauve-200 hover:shadow-brand-lg transition">
+            <div class="text-3xl mb-4">&#128221;</div>
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('web.transcriptViewer.title')}</h3>
+            <p class="text-warm-600">{t('web.transcriptViewer.description')}</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-mauve-200 hover:shadow-brand-lg transition">
+            <div class="text-3xl mb-4">&#128450;</div>
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('web.domainOrganization.title')}</h3>
+            <p class="text-warm-600">{t('web.domainOrganization.description')}</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-mauve-200 hover:shadow-brand-lg transition">
+            <div class="text-3xl mb-4">&#9881;</div>
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('web.exportMapping.title')}</h3>
+            <p class="text-warm-600">{t('web.exportMapping.description')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RAG System Section -->
+    <section class="bg-warm-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="inline-block bg-amber-400 text-plum-900 px-4 py-2 rounded-full text-sm font-semibold">{t('rag.badge')}</span>
+          <h2 class="text-4xl font-bold text-warm-900 mb-4 mt-4">{t('rag.title')}</h2>
+          <p class="text-warm-600 max-w-2xl mx-auto">
+            {t('rag.description')}
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gradient-to-br from-amber-200/50 to-amber-300/30 p-6 rounded-lg border border-amber-300">
+            <h3 class="text-xl font-bold mb-4 text-warm-900">{t('rag.endpoints.title')}</h3>
+            <ul class="space-y-3 text-warm-700">
+              <li class="flex items-start"><span class="text-plum-700 mr-2">&#8594;</span> <strong>{t('rag.endpoints.constraints')}</strong> {t('rag.endpoints.constraintsDesc')}</li>
+              <li class="flex items-start"><span class="text-plum-700 mr-2">&#8594;</span> <strong>{t('rag.endpoints.patterns')}</strong> {t('rag.endpoints.patternsDesc')}</li>
+              <li class="flex items-start"><span class="text-plum-700 mr-2">&#8594;</span> <strong>{t('rag.endpoints.similarWork')}</strong> {t('rag.endpoints.similarWorkDesc')}</li>
+              <li class="flex items-start"><span class="text-plum-700 mr-2">&#8594;</span> <strong>{t('rag.endpoints.techDocs')}</strong> {t('rag.endpoints.techDocsDesc')}</li>
+              <li class="flex items-start"><span class="text-plum-700 mr-2">&#8594;</span> <strong>{t('rag.endpoints.business')}</strong> {t('rag.endpoints.businessDesc')}</li>
+              <li class="flex items-start"><span class="text-plum-700 mr-2">&#8594;</span> <strong>{t('rag.endpoints.examples')}</strong> {t('rag.endpoints.examplesDesc')}</li>
+              <li class="flex items-start"><span class="text-plum-700 mr-2">&#8594;</span> <strong>{t('rag.endpoints.deprecated')}</strong> {t('rag.endpoints.deprecatedDesc')}</li>
+            </ul>
+          </div>
+          <div class="bg-gradient-to-br from-mauve-200/50 to-mauve-100 p-6 rounded-lg border border-mauve-300">
+            <h3 class="text-xl font-bold mb-4 text-warm-900">{t('rag.frontmatter.title')}</h3>
+            <p class="text-warm-700 mb-4">{t('rag.frontmatter.description')}</p>
+            <pre class="bg-plum-900 text-amber-300 p-4 rounded-lg text-sm overflow-x-auto"><code>type: adr | policy | architecture
+status: active | draft | deprecated
+domain: [authentication, pipeline]
+decision_type: constraint | pattern
+keywords: [explicit, search, terms]</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Configuration Section -->
+    <section class="bg-warm-100 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-warm-900 mb-4">{t('config.title')}</h2>
+          <p class="text-warm-600 max-w-2xl mx-auto">{t('config.description')}</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200">
+            <h3 class="text-xl font-bold mb-4 text-warm-900">{t('config.workflows.title')}</h3>
+            <ul class="space-y-2 text-warm-600 text-sm">
+              <li>&#8226; refinement.yaml - Standaard refinement</li>
+              <li>&#8226; refinement-minimal.yaml - Lightweight</li>
+              <li>&#8226; refinement-full.yaml - Alle functies</li>
+              <li>&#8226; refinement-risk-focused.yaml - Risico focus</li>
+              <li>&#8226; refinement-questions-only.yaml - Vragen focus</li>
+            </ul>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200">
+            <h3 class="text-xl font-bold mb-4 text-warm-900">{t('config.dor.title')}</h3>
+            <ul class="space-y-2 text-warm-600 text-sm">
+              <li>&#8226; {t('config.dor.teamSpecific')}</li>
+              <li>&#8226; {t('config.dor.multiRole')}</li>
+              <li>&#8226; {t('config.dor.customizable')}</li>
+              <li>&#8226; {t('config.dor.enforcement')}</li>
+              <li>&#8226; {t('config.dor.localization')}</li>
+            </ul>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200">
+            <h3 class="text-xl font-bold mb-4 text-warm-900">{t('config.output.title')}</h3>
+            <ul class="space-y-2 text-warm-600 text-sm">
+              <li>&#8226; {t('config.output.devops')}</li>
+              <li>&#8226; {t('config.output.obsidian')}</li>
+              <li>&#8226; {t('config.output.confluence')}</li>
+              <li>&#8226; {t('config.output.json')}</li>
+              <li>&#8226; {t('config.output.markdown')}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="features" class="bg-warm-50 py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-warm-900 mb-4">{t('features.title')}</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="border-l-4 border-plum-700 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.context.title')}</h3>
+            <p class="text-warm-600">{t('features.context.description')}</p>
+          </div>
+          <div class="border-l-4 border-plum-700 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.templates.title')}</h3>
+            <p class="text-warm-600">{t('features.templates.description')}</p>
+          </div>
+          <div class="border-l-4 border-amber-400 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.risk.title')}</h3>
+            <p class="text-warm-600">{t('features.risk.description')}</p>
+          </div>
+          <div class="border-l-4 border-amber-400 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.consistency.title')}</h3>
+            <p class="text-warm-600">{t('features.consistency.description')}</p>
+          </div>
+          <div class="border-l-4 border-mauve-400 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.collaborative.title')}</h3>
+            <p class="text-warm-600">{t('features.collaborative.description')}</p>
+          </div>
+          <div class="border-l-4 border-mauve-400 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.estimation.title')}</h3>
+            <p class="text-warm-600">{t('features.estimation.description')}</p>
+          </div>
+          <div class="border-l-4 border-plum-500 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.dor.title')}</h3>
+            <p class="text-warm-600">{t('features.dor.description')}</p>
+          </div>
+          <div class="border-l-4 border-plum-500 pl-6 py-4 bg-white rounded-r-lg shadow-brand-sm">
+            <h3 class="text-xl font-bold mb-2 text-warm-900">{t('features.proposals.title')}</h3>
+            <p class="text-warm-600">{t('features.proposals.description')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations Section - Deep Plum -->
+    <section class="bg-hero-gradient text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-12">{t('integrations.title')}</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-mauve-400/30 hover:border-amber-400/50 transition">
+            <div class="text-3xl mb-4">&#127897;</div>
+            <h3 class="text-lg font-bold mb-2">{t('integrations.fireflies.title')}</h3>
+            <p class="text-mauve-200 text-sm">{t('integrations.fireflies.description')}</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-mauve-400/30 hover:border-amber-400/50 transition">
+            <div class="text-3xl mb-4">&#128311;</div>
+            <h3 class="text-lg font-bold mb-2">{t('integrations.azureDevOps.title')}</h3>
+            <p class="text-mauve-200 text-sm">{t('integrations.azureDevOps.description')}</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-mauve-400/30 hover:border-amber-400/50 transition">
+            <div class="text-3xl mb-4">&#128309;</div>
+            <h3 class="text-lg font-bold mb-2">{t('integrations.atlassian.title')}</h3>
+            <p class="text-mauve-200 text-sm">{t('integrations.atlassian.description')}</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-mauve-400/30 hover:border-amber-400/50 transition">
+            <div class="text-3xl mb-4">&#128156;</div>
+            <h3 class="text-lg font-bold mb-2">{t('integrations.obsidian.title')}</h3>
+            <p class="text-mauve-200 text-sm">{t('integrations.obsidian.description')}</p>
+          </div>
+        </div>
+        <div class="mt-12 text-center">
+          <div class="inline-block bg-white/10 backdrop-blur px-8 py-6 rounded-xl border border-amber-400/30">
+            <h3 class="text-lg font-bold mb-2 text-amber-300">{t('integrations.mcp.title')}</h3>
+            <p class="text-mauve-200 text-sm max-w-xl">
+              {t('integrations.mcp.description')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-warm-900 mb-4">{t('pricing.title')}</h2>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-plum-500 hover:shadow-brand-lg transition">
+          <h3 class="text-2xl font-bold mb-2 text-warm-900">{t('pricing.starter.title')}</h3>
+          <div class="text-4xl font-bold text-plum-700 mb-4">&#8364;49<span class="text-lg text-warm-500">/ma</span></div>
+          <ul class="space-y-3 mb-6 text-warm-600">
+            <li>&#10003; {t('pricing.starter.team')}</li>
+            <li>&#10003; {t('pricing.starter.meetings')}</li>
+            <li>&#10003; {t('pricing.starter.cli')}</li>
+            <li>&#10003; {t('pricing.starter.features')}</li>
+            <li>&#10003; {t('pricing.starter.support')}</li>
+          </ul>
+          <button class="w-full bg-plum-700 text-white py-3 rounded-lg font-semibold hover:bg-plum-800 transition">{t('pricing.getStarted')}</button>
+        </div>
+        <div class="relative bg-white p-8 rounded-2xl shadow-brand-xl border-2 border-amber-400 ring-4 ring-amber-400/20">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-amber-400 text-plum-900 px-4 py-1 rounded-full text-sm font-bold">{t('pricing.pro.popular')}</div>
+          <h3 class="text-2xl font-bold mb-2 text-warm-900">{t('pricing.pro.title')}</h3>
+          <div class="text-4xl font-bold text-plum-700 mb-4">&#8364;149<span class="text-lg text-warm-500">/ma</span></div>
+          <ul class="space-y-3 mb-6 text-warm-600">
+            <li>&#10003; {t('pricing.pro.teams')}</li>
+            <li>&#10003; {t('pricing.pro.meetings')}</li>
+            <li>&#10003; {t('pricing.pro.access')}</li>
+            <li>&#10003; {t('pricing.pro.features')}</li>
+            <li>&#10003; {t('pricing.pro.support')}</li>
+          </ul>
+          <button class="w-full bg-amber-400 text-plum-900 py-3 rounded-lg font-bold hover:bg-amber-300 transition glow-amber">{t('pricing.getStarted')}</button>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-plum-500 hover:shadow-brand-lg transition">
+          <h3 class="text-2xl font-bold mb-2 text-warm-900">{t('pricing.business.title')}</h3>
+          <div class="text-4xl font-bold text-plum-700 mb-4">&#8364;499<span class="text-lg text-warm-500">/ma</span></div>
+          <ul class="space-y-3 mb-6 text-warm-600">
+            <li>&#10003; {t('pricing.business.teams')}</li>
+            <li>&#10003; {t('pricing.business.meetings')}</li>
+            <li>&#10003; {t('pricing.business.access')}</li>
+            <li>&#10003; {t('pricing.business.analytics')}</li>
+            <li>&#10003; {t('pricing.business.support')}</li>
+          </ul>
+          <button class="w-full bg-plum-700 text-white py-3 rounded-lg font-semibold hover:bg-plum-800 transition">{t('pricing.getStarted')}</button>
+        </div>
+        <div class="bg-white p-8 rounded-2xl shadow-brand border border-warm-200 hover:border-plum-500 hover:shadow-brand-lg transition">
+          <h3 class="text-2xl font-bold mb-2 text-warm-900">{t('pricing.enterprise.title')}</h3>
+          <div class="text-4xl font-bold text-plum-700 mb-4">{t('pricing.enterprise.price')}</div>
+          <ul class="space-y-3 mb-6 text-warm-600">
+            <li>&#10003; {t('pricing.enterprise.onPremise')}</li>
+            <li>&#10003; {t('pricing.enterprise.sso')}</li>
+            <li>&#10003; {t('pricing.enterprise.mcp')}</li>
+            <li>&#10003; {t('pricing.enterprise.integrations')}</li>
+            <li>&#10003; {t('pricing.enterprise.support')}</li>
+          </ul>
+          <button class="w-full bg-plum-700 text-white py-3 rounded-lg font-semibold hover:bg-plum-800 transition">{t('pricing.contactSales')}</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Target Markets - Deep Plum -->
+    <section class="bg-hero-gradient text-white py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-12">{t('markets.title')}</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-mauve-400/30">
+            <h3 class="text-xl font-bold mb-3">{t('markets.software.title')}</h3>
+            <p class="text-mauve-200 mb-4">{t('markets.software.description')}</p>
+            <p class="text-amber-300 font-semibold">&#8364;500-5000{t('markets.software.value')}</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-mauve-400/30">
+            <h3 class="text-xl font-bold mb-3">{t('markets.enterprise.title')}</h3>
+            <p class="text-mauve-200 mb-4">{t('markets.enterprise.description')}</p>
+            <p class="text-amber-300 font-semibold">&#8364;5k-50k{t('markets.enterprise.value')}</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur p-6 rounded-lg border border-mauve-400/30">
+            <h3 class="text-xl font-bold mb-3">{t('markets.consulting.title')}</h3>
+            <p class="text-mauve-200 mb-4">{t('markets.consulting.description')}</p>
+            <p class="text-amber-300 font-semibold">&#8364;1k-10k{t('markets.consulting.value')}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="bg-gradient-to-br from-plum-900 via-plum-800 to-plum-900 text-white py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Ambient glow -->
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
+        <div class="relative">
+          <h2 class="text-4xl font-bold mb-6">{t('cta.title')}</h2>
+          <p class="text-xl text-mauve-200 mb-10 max-w-2xl mx-auto">
+            {t('cta.description')}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#pricing" class="bg-amber-400 text-plum-900 px-8 py-4 rounded-lg font-bold hover:bg-amber-300 transition shadow-lg glow-amber">
+              {t('cta.freeTrial')}
+            </a>
+            <a href="/nl/docs" class="border-2 border-mauve-400 text-mauve-200 px-8 py-4 rounded-lg font-semibold hover:bg-mauve-400/10 transition">
+              {t('cta.viewDocs')}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

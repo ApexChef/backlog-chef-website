@@ -1,0 +1,25 @@
+---
+import { languages, getLangFromUrl, getLocalizedPath } from '../i18n/ui';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+---
+
+<div class="relative inline-block text-left">
+  <div class="flex items-center space-x-2">
+    {Object.entries(languages).map(([lang, label]) => (
+      <a
+        href={getLocalizedPath(currentPath, lang as keyof typeof languages)}
+        class:list={[
+          'px-3 py-1 text-sm font-medium rounded-md transition',
+          lang === currentLang
+            ? 'bg-blue-600 text-white'
+            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+        ]}
+        aria-current={lang === currentLang ? 'page' : undefined}
+      >
+        {label}
+      </a>
+    ))}
+  </div>
+</div>

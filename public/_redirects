@@ -1,0 +1,8 @@
+# Netlify redirects for i18n
+# Redirect root URLs to English versions
+/docs    /en/docs    301
+/pitch   /en/pitch   301
+
+# Language-based redirect for root (browser language detection)
+# Default to English if no preference
+/        /en/        302

@@ -1,0 +1,528 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const lang = 'nl';
+const t = useTranslations(lang);
+---
+
+<Layout title="Documentatie - Backlog Chef" description="Volledige documentatie voor Backlog Chef - Transformeer vergaderingen naar hoogwaardige Product Backlogs" lang={lang}>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl font-bold mb-6 text-slate-900">{t('docs.title')}</h1>
+      <p class="text-xl text-slate-600 mb-12">
+        {t('docs.description')}
+      </p>
+
+      <!-- Quick Navigation -->
+      <nav class="bg-white p-6 rounded-lg shadow-md mb-12">
+        <h2 class="text-lg font-bold mb-4 text-slate-900">{t('docs.quickNav')}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <a href="#vision" class="text-blue-600 hover:underline">{t('docs.vision')}</a>
+          <a href="#pipeline" class="text-blue-600 hover:underline">{t('pipeline.title')}</a>
+          <a href="#cli" class="text-blue-600 hover:underline">{t('nav.cli')}</a>
+          <a href="#web" class="text-blue-600 hover:underline">{t('nav.web')}</a>
+          <a href="#rag" class="text-blue-600 hover:underline">RAG Systeem</a>
+          <a href="#config" class="text-blue-600 hover:underline">Configuratie</a>
+          <a href="#tech" class="text-blue-600 hover:underline">{t('docs.techStack')}</a>
+          <a href="#roadmap" class="text-blue-600 hover:underline">{t('docs.roadmap')}</a>
+        </div>
+      </nav>
+
+      <!-- Vision -->
+      <section id="vision" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">{t('docs.vision')}</h2>
+        <p class="text-slate-700 text-lg leading-relaxed mb-4">
+          Backlog Chef is een <strong>AI-aangedreven systeem dat Scrum refinement vergaderingen transformeert naar gestructureerde, hoogwaardige Product Backlog Items</strong> met ingebouwde kwaliteitsborging, context verrijking en stakeholder-intelligentie.
+        </p>
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
+          <h3 class="font-bold text-blue-900 mb-2">Belangrijkste Onderscheidingen</h3>
+          <ul class="text-slate-700 space-y-1">
+            <li>&#8226; <strong>{t('why.domainSpecific.title')}:</strong> {t('why.domainSpecific.description')}</li>
+            <li>&#8226; <strong>{t('why.qualityBuiltIn.title')}:</strong> Betrouwbaarheidsscore voorkomt onvolledige requirements</li>
+            <li>&#8226; <strong>{t('why.actionable.title')}:</strong> {t('why.actionable.description')}</li>
+            <li>&#8226; <strong>{t('why.integrated.title')}:</strong> {t('why.integrated.description')}</li>
+            <li>&#8226; <strong>Lerend Systeem:</strong> Verbetert met de geschiedenis en patronen van je team</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8-Step Pipeline -->
+      <section id="pipeline" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">{t('pipeline.title')}</h2>
+        <p class="text-slate-700 mb-6">
+          {t('pipeline.description')}
+        </p>
+        <div class="space-y-4">
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 1</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step1.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              Identificeert vergadertype (refinement, planning, retrospective) met CLI flags, titel parsing of LLM inferentie. Biedt betrouwbaarheidsscore voor detectiemethode.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blue-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 2</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step2.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              {t('pipeline.step2.description')}
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 3</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step3.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              {t('pipeline.step3.description')}
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-green-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-green-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 4</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step4.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              Doorzoekt vergelijkbaar werk, eerdere beslissingen en technische documentatie met RAG (Retrieval-Augmented Generation). Gebruikt frontmatter-gebaseerde document filtering om dubbel werk te voorkomen en gerelateerde constraints te identificeren.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 5</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step5.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              {t('pipeline.step5.description')}
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-yellow-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 6</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step6.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              Maakt actiegerichte vragen met voorgestelde antwoorden. Routeert naar geschikte stakeholders, stelt verduidelijkingen voor en suggereert risico mitigatie strategieen.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 7</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step7.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              Valideert tegen de aangepaste Definition of Ready criteria van je team. Ondersteunt aangepaste DoR configuratie per team, kwaliteitspoort handhaving en gap identificatie.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-purple-500">
+            <div class="flex items-center mb-2">
+              <span class="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded mr-3">Stap 8</span>
+              <h3 class="text-xl font-bold text-slate-900">{t('pipeline.step8.title')}</h3>
+            </div>
+            <p class="text-slate-700">
+              Formatteert PBIs voor meerdere bestemmingen: Markdown (primair), DevOps (Azure DevOps formaat), Obsidian (notities met wiki links), Confluence (wiki) en JSON (ruwe data).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLI Commands -->
+      <section id="cli" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">{t('cli.title')}</h2>
+        <p class="text-slate-700 mb-6">
+          {t('cli.description')}
+        </p>
+
+        <!-- Processing Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-slate-900">Verwerkingscommando's</h3>
+        <div class="space-y-4">
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef process &lt;source&gt;</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.process.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --hitl (Human-in-the-loop modus), --workflow &lt;profile&gt;, --output &lt;format&gt;
+            </div>
+          </div>
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef resume [pipeline-id]</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.resume.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --hitl, --output &lt;format&gt;
+            </div>
+          </div>
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef status</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.status.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --verbose, --json
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuration Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-slate-900">Configuratiecommando's</h3>
+        <div class="space-y-4">
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef init</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.init.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --minimal, --with-rag, --silent
+            </div>
+          </div>
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef setup</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.setup.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --global, --local, --force, --silent
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-slate-900">Outputcommando's</h3>
+        <div class="space-y-4">
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef export [opties]</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.export.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --id &lt;pbi-id&gt;, --source &lt;source&gt;, --all, --dry-run, --force, --dest &lt;path&gt;
+            </div>
+          </div>
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef format &lt;source&gt; --target &lt;format&gt;</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.format.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Formaten:</strong> devops, obsidian, confluence, json, markdown
+            </div>
+          </div>
+        </div>
+
+        <!-- RAG Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-slate-900">RAG Commando's</h3>
+        <div class="space-y-4">
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef rag index [path]</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.ragIndex.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --watch, --strategy &lt;semantic|fixed|recursive&gt;, --include-pbis
+            </div>
+          </div>
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef rag query "&lt;query&gt;"</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.ragQuery.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --top-k &lt;n&gt;, --min-score &lt;0-1&gt;, --json
+            </div>
+          </div>
+        </div>
+
+        <!-- Validation Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-slate-900">Validatiecommando's</h3>
+        <div class="space-y-4">
+          <div class="bg-slate-900 p-6 rounded-lg">
+            <code class="text-green-400 font-mono text-lg">chef validate docs [path]</code>
+            <p class="text-slate-300 mt-2 text-sm">
+              {t('cli.validateDocs.description')}
+            </p>
+            <div class="mt-3 text-slate-400 text-xs">
+              <strong>Opties:</strong> --strict, --include-warnings, --report &lt;path&gt;, --json
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Web Interface -->
+      <section id="web" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">{t('web.title')}</h2>
+        <p class="text-slate-700 mb-6">
+          {t('web.description')}
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('web.pbiBrowser.title')}</h3>
+            <p class="text-slate-700 text-sm">{t('web.pbiBrowser.description')}</p>
+            <code class="text-xs text-blue-600 mt-2 block">/app/pbis</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('web.semanticSearch.title')}</h3>
+            <p class="text-slate-700 text-sm">Zoek door alle documentatie met gespecialiseerde tabs: Constraints, Patronen, Vergelijkbaar Werk, Tech Docs, Business Docs, Voorbeelden, Verouderd.</p>
+            <code class="text-xs text-blue-600 mt-2 block">/app/search</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('web.meetingsBrowser.title')}</h3>
+            <p class="text-slate-700 text-sm">Blader door alle verwerkte vergaderingen met metadata weergave en links naar transcripten en samenvattingen.</p>
+            <code class="text-xs text-blue-600 mt-2 block">/app/meetings</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('web.transcriptViewer.title')}</h3>
+            <p class="text-slate-700 text-sm">{t('web.transcriptViewer.description')}</p>
+            <code class="text-xs text-blue-600 mt-2 block">/app/transcripts</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-bold mb-2 text-slate-900">{t('web.exportMapping.title')}</h3>
+            <p class="text-slate-700 text-sm">{t('web.exportMapping.description')}</p>
+            <code class="text-xs text-blue-600 mt-2 block">/app/export-mapping</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blue-200">
+            <h3 class="text-lg font-bold mb-2 text-slate-900">RAG API</h3>
+            <p class="text-slate-700 text-sm">REST API voor context ophaling met gespecialiseerde endpoints voor constraints, patronen, vergelijkbaar werk en meer.</p>
+            <code class="text-xs text-blue-600 mt-2 block">/api/rag/*</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- RAG System -->
+      <section id="rag" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">RAG Systeem</h2>
+        <p class="text-slate-700 mb-6">
+          Retrieval-Augmented Generation drijft Stap 4 (Context Verrijking) en de Semantisch Zoeken functie aan.
+        </p>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h3 class="text-xl font-bold mb-4 text-slate-900">Vector Store Configuratie</h3>
+          <ul class="space-y-2 text-slate-700">
+            <li><strong>Provider:</strong> ChromaDB (lokaal) met Pinecone ondersteuning gepland</li>
+            <li><strong>Embedding Model:</strong> Xenova/all-MiniLM-L6-v2 (384 dimensies, 80MB, snel)</li>
+            <li><strong>Chunking Strategie:</strong> Semantisch (configureerbaar: fixed, recursive)</li>
+            <li><strong>Chunk Instellingen:</strong> Min 100 tekens, Max 500 tekens, 50 tekens overlap</li>
+            <li><strong>Retrieval:</strong> Top-K (standaard 5), min overeenkomst 0.3</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h3 class="text-xl font-bold mb-4 text-slate-900">{t('rag.endpoints.title')}</h3>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/constraints</code>
+              <p class="text-slate-600 mt-1">{t('rag.endpoints.constraintsDesc')}</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/patterns</code>
+              <p class="text-slate-600 mt-1">{t('rag.endpoints.patternsDesc')}</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/similar-work</code>
+              <p class="text-slate-600 mt-1">{t('rag.endpoints.similarWorkDesc')}</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/tech-docs</code>
+              <p class="text-slate-600 mt-1">{t('rag.endpoints.techDocsDesc')}</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/business</code>
+              <p class="text-slate-600 mt-1">{t('rag.endpoints.businessDesc')}</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/examples</code>
+              <p class="text-slate-600 mt-1">{t('rag.endpoints.examplesDesc')}</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/deprecated</code>
+              <p class="text-slate-600 mt-1">{t('rag.endpoints.deprecatedDesc')}</p>
+            </div>
+            <div class="bg-slate-50 p-3 rounded">
+              <code class="text-blue-600">/api/rag/by-domain</code>
+              <p class="text-slate-600 mt-1">Domein-georganiseerd zoeken</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4 text-slate-900">{t('rag.frontmatter.title')}</h3>
+          <p class="text-slate-700 mb-4">{t('rag.frontmatter.description')}</p>
+          <pre class="bg-slate-900 text-green-400 p-4 rounded-lg text-sm overflow-x-auto"><code>---
+type: adr | policy | architecture | specification | reference | business | pbi | pact | guide
+id: XXX-NNN
+title: "Document Titel"
+status: active | draft | deprecated
+domain: [authentication, pipeline, integration]
+decision_type: constraint | recommendation | pattern | example
+keywords: [expliciete, zoek, termen]
+---</code></pre>
+        </div>
+      </section>
+
+      <!-- Configuration -->
+      <section id="config" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">Configuratie</h2>
+        <p class="text-slate-700 mb-6">
+          {t('config.description')}
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-slate-900">{t('config.workflows.title')}</h3>
+            <ul class="space-y-2 text-slate-700 text-sm">
+              <li><code class="bg-slate-100 px-2 py-1 rounded">refinement.yaml</code> - Standaard refinement workflow</li>
+              <li><code class="bg-slate-100 px-2 py-1 rounded">refinement-minimal.yaml</code> - Lightweight versie</li>
+              <li><code class="bg-slate-100 px-2 py-1 rounded">refinement-full.yaml</code> - Alle functies ingeschakeld</li>
+              <li><code class="bg-slate-100 px-2 py-1 rounded">refinement-questions-only.yaml</code> - Vragen focus</li>
+              <li><code class="bg-slate-100 px-2 py-1 rounded">refinement-risk-focused.yaml</code> - Risico nadruk</li>
+              <li><code class="bg-slate-100 px-2 py-1 rounded">refinement-binary-readiness.yaml</code> - Simpel gereed/niet-gereed</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-slate-900">{t('config.dor.title')}</h3>
+            <ul class="space-y-2 text-slate-700 text-sm">
+              <li>&#8226; {t('config.dor.teamSpecific')}</li>
+              <li>&#8226; {t('config.dor.multiRole')}</li>
+              <li>&#8226; {t('config.dor.customizable')}</li>
+              <li>&#8226; {t('config.dor.enforcement')}</li>
+              <li>&#8226; {t('config.dor.localization')}</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-slate-900">{t('config.output.title')}</h3>
+            <ul class="space-y-2 text-slate-700 text-sm">
+              <li><strong>DevOps:</strong> Azure DevOps work item formaat</li>
+              <li><strong>Obsidian:</strong> Markdown met wiki links</li>
+              <li><strong>Confluence:</strong> Wiki-ready formaat</li>
+              <li><strong>JSON:</strong> Ruwe gestructureerde data</li>
+              <li><strong>Markdown:</strong> Standaard documentatie</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-slate-900">Hoofd Config Bestand</h3>
+            <p class="text-slate-700 text-sm mb-2"><code class="bg-slate-100 px-2 py-1 rounded">backlog-chef.config.yaml</code></p>
+            <ul class="space-y-1 text-slate-600 text-sm">
+              <li>&#8226; Project metadata</li>
+              <li>&#8226; Server instellingen (web: 4321, chroma: 8000)</li>
+              <li>&#8226; Pad configuratie</li>
+              <li>&#8226; RAG instellingen</li>
+              <li>&#8226; Fireflies integratie</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section id="tech" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">{t('docs.techStack')}</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 text-slate-900">CLI (MVP)</h3>
+            <ul class="space-y-2 text-slate-700">
+              <li><strong>Taal:</strong> TypeScript/Node.js</li>
+              <li><strong>AI Engine:</strong> Anthropic Claude API</li>
+              <li><strong>Integratie:</strong> Model Context Protocol (MCP)</li>
+              <li><strong>Vector Store:</strong> ChromaDB</li>
+              <li><strong>Opslag:</strong> Lokale JSON + .chef/ state map</li>
+              <li><strong>Templating:</strong> Handlebars</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Web Interface (V1)</h3>
+            <ul class="space-y-2 text-slate-700">
+              <li><strong>Framework:</strong> Astro 4.x (Island architectuur)</li>
+              <li><strong>UI Components:</strong> React 18</li>
+              <li><strong>Styling:</strong> Tailwind CSS v4</li>
+              <li><strong>Data Tabellen:</strong> TanStack Table</li>
+              <li><strong>SSR:</strong> Node.js adapter</li>
+              <li><strong>TypeScript:</strong> Strict mode</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap -->
+      <section id="roadmap" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">{t('docs.roadmap')}</h2>
+        <div class="space-y-4">
+          <div class="bg-green-50 border-l-4 border-green-600 p-6 rounded-r-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-green-900">MVP (CLI)</h3>
+              <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">In Uitvoering</span>
+            </div>
+            <ul class="list-disc list-inside text-slate-700 space-y-1">
+              <li>&#10003; 10 CLI commando's (process, resume, status, init, setup, export, format, rag index, rag query, validate)</li>
+              <li>&#10003; 8-stappen verwerkingspipeline</li>
+              <li>&#10003; Fireflies integratie</li>
+              <li>&#10003; RAG-aangedreven context verrijking met ChromaDB</li>
+              <li>&#10003; Meerdere output formaten (DevOps, Obsidian, Confluence, JSON, Markdown)</li>
+              <li>&#10003; Pipeline state management (pause/resume)</li>
+              <li>&#10003; Documentatie validatie</li>
+              <li>&#128260; Pipeline kwaliteitsverbeteringen</li>
+            </ul>
+          </div>
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-r-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-blue-900">V1 (Web Interface)</h3>
+              <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">In Uitvoering</span>
+            </div>
+            <ul class="list-disc list-inside text-slate-700 space-y-1">
+              <li>&#10003; Astro-aangedreven web interface</li>
+              <li>&#10003; PBI browser met multi-view (Tabel, Kaart, Kanban)</li>
+              <li>&#10003; Semantisch zoeken pagina met gespecialiseerde tabs</li>
+              <li>&#10003; Vergaderingen browser</li>
+              <li>&#10003; Transcript viewer</li>
+              <li>&#10003; RAG API endpoints</li>
+              <li>&#128260; Export mapping configuratie</li>
+              <li>&#128260; Real-time functies</li>
+            </ul>
+          </div>
+          <div class="bg-purple-50 border-l-4 border-purple-600 p-6 rounded-r-lg">
+            <h3 class="text-xl font-bold mb-2 text-purple-900">V2 (Platform)</h3>
+            <ul class="list-disc list-inside text-slate-700 space-y-1">
+              <li>Multi-team samenwerking</li>
+              <li>Plugin marketplace</li>
+              <li>Aangepaste integraties</li>
+              <li>Enterprise functies (SSO, on-prem)</li>
+              <li>Geavanceerde analytics en inzichten</li>
+              <li>MS Teams / Slack integratie</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Getting Started -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-slate-900 border-b-2 border-blue-600 pb-2">{t('docs.gettingStarted')}</h2>
+        <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-8 rounded-lg">
+          <h3 class="text-2xl font-bold mb-4">{t('docs.gettingStarted.title')}</h3>
+          <div class="bg-white/10 p-4 rounded-lg mb-6">
+            <pre class="text-blue-100 text-sm"><code># Installeer Backlog Chef
+npm install -g backlog-chef
+
+# Initialiseer in je project
+chef init
+
+# Voer de setup wizard uit
+chef setup
+
+# Verwerk je eerste vergadering
+chef process &lt;fireflies-url&gt;</code></pre>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/nl/#pricing" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition text-center">
+              {t('docs.viewPricing')}
+            </a>
+            <a href="/nl/#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition text-center">
+              {t('docs.contactUs')}
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
