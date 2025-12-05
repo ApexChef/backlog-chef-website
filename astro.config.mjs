@@ -12,5 +12,13 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   output: 'static',
-  adapter: netlify()
+  adapter: netlify(),
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'nl'],
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: false
+    }
+  }
 });

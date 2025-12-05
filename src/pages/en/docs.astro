@@ -1,0 +1,562 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
+import Card from '../../components/ui/Card.astro';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<Layout title="Documentation - Backlog Chef" description="Complete documentation for Backlog Chef - Transform meetings into high-quality Product Backlogs" lang={lang}>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl font-bold mb-6 text-sage-900">{t('docs.title')}</h1>
+      <p class="text-xl text-sage-600 mb-12">
+        {t('docs.description')}
+      </p>
+
+      <!-- Quick Navigation -->
+      <nav class="bg-white p-6 rounded-lg shadow-md mb-12 border border-sage-200">
+        <h2 class="text-lg font-bold mb-4 text-sage-900">{t('docs.quickNav')}</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <a href="#vision" class="text-sage-600 hover:text-sage-800 hover:underline">{t('docs.vision')}</a>
+          <a href="#pipeline" class="text-sage-600 hover:text-sage-800 hover:underline">{t('pipeline.title')}</a>
+          <a href="#cli" class="text-sage-600 hover:text-sage-800 hover:underline">{t('nav.cli')}</a>
+          <a href="#web" class="text-sage-600 hover:text-sage-800 hover:underline">{t('nav.web')}</a>
+          <a href="#rag" class="text-sage-600 hover:text-sage-800 hover:underline">RAG System</a>
+          <a href="#config" class="text-sage-600 hover:text-sage-800 hover:underline">Configuration</a>
+          <a href="#tech" class="text-sage-600 hover:text-sage-800 hover:underline">{t('docs.techStack')}</a>
+          <a href="#roadmap" class="text-sage-600 hover:text-sage-800 hover:underline">{t('docs.roadmap')}</a>
+        </div>
+      </nav>
+
+      <!-- Vision -->
+      <section id="vision" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">{t('docs.vision')}</h2>
+        <p class="text-sage-700 text-lg leading-relaxed mb-4">
+          Backlog Chef is an <strong>AI-powered system that transforms Scrum refinement meetings into structured, high-quality Product Backlog Items</strong> with built-in quality assurance, context enrichment, and stakeholder intelligence.
+        </p>
+        <div class="bg-blush/30 border-l-4 border-sage-500 p-4 rounded-r-lg">
+          <h3 class="font-bold text-sage-900 mb-2">Key Differentiators</h3>
+          <ul class="text-sage-700 space-y-1">
+            <li>&#8226; <strong>{t('why.domainSpecific.title')}:</strong> {t('why.domainSpecific.description')}</li>
+            <li>&#8226; <strong>{t('why.qualityBuiltIn.title')}:</strong> Confidence scoring prevents incomplete requirements</li>
+            <li>&#8226; <strong>{t('why.actionable.title')}:</strong> {t('why.actionable.description')}</li>
+            <li>&#8226; <strong>{t('why.integrated.title')}:</strong> {t('why.integrated.description')}</li>
+            <li>&#8226; <strong>Learning System:</strong> Improves with your team's history and patterns</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8-Step Pipeline -->
+      <section id="pipeline" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">{t('pipeline.title')}</h2>
+        <p class="text-sage-700 mb-6">
+          {t('pipeline.description')}
+        </p>
+        <div class="space-y-4">
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blush">
+            <div class="flex items-center mb-2">
+              <span class="bg-blush text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 1</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step1.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              Identifies meeting type (refinement, planning, retrospective) using CLI flags, title parsing, or LLM inference. Provides confidence scoring for detection method.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-blush">
+            <div class="flex items-center mb-2">
+              <span class="bg-blush text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 2</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step2.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              {t('pipeline.step2.description')}
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-peach">
+            <div class="flex items-center mb-2">
+              <span class="bg-peach text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 3</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step3.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              {t('pipeline.step3.description')}
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-peach">
+            <div class="flex items-center mb-2">
+              <span class="bg-peach text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 4</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step4.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              Searches similar work, past decisions, and technical documentation using RAG (Retrieval-Augmented Generation). Uses frontmatter-based document filtering to prevent duplicate work and identify related constraints.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-coral">
+            <div class="flex items-center mb-2">
+              <span class="bg-coral text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 5</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step5.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              {t('pipeline.step5.description')}
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-coral">
+            <div class="flex items-center mb-2">
+              <span class="bg-coral text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 6</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step6.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              Creates actionable questions with suggested answers. Routes to appropriate stakeholders, proposes clarifications, and suggests risk mitigation strategies.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-sage-400">
+            <div class="flex items-center mb-2">
+              <span class="bg-sage-400 text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 7</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step7.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              Validates against your team's custom Definition of Ready criteria. Supports custom DoR configuration per team, quality gate enforcement, and gap identification.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-sage-400">
+            <div class="flex items-center mb-2">
+              <span class="bg-sage-400 text-white text-xs font-bold px-2 py-1 rounded mr-3">Step 8</span>
+              <h3 class="text-xl font-bold text-sage-900">{t('pipeline.step8.title')}</h3>
+            </div>
+            <p class="text-sage-700">
+              Formats PBIs for multiple destinations: Markdown (primary), DevOps (Azure DevOps format), Obsidian (note-taking with wiki links), Confluence (wiki), and JSON (raw data).
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLI Commands -->
+      <section id="cli" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">{t('cli.title')}</h2>
+        <p class="text-sage-700 mb-6">
+          {t('cli.description')}
+        </p>
+
+        <!-- Processing Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-sage-900">Processing Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef process &lt;source&gt;</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.process.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --hitl (Human-in-the-loop mode), --workflow &lt;profile&gt;, --output &lt;format&gt;
+            </div>
+          </div>
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef resume [pipeline-id]</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.resume.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --hitl, --output &lt;format&gt;
+            </div>
+          </div>
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef status</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.status.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --verbose, --json
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuration Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-sage-900">Configuration Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef init</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.init.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --minimal, --with-rag, --silent
+            </div>
+          </div>
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef setup</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.setup.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --global, --local, --force, --silent
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-sage-900">Output Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef export [options]</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.export.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --id &lt;pbi-id&gt;, --source &lt;source&gt;, --all, --dry-run, --force, --dest &lt;path&gt;
+            </div>
+          </div>
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef format &lt;source&gt; --target &lt;format&gt;</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.format.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Formats:</strong> devops, obsidian, confluence, json, markdown
+            </div>
+          </div>
+        </div>
+
+        <!-- RAG Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-sage-900">RAG Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef rag index [path]</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.ragIndex.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --watch, --strategy &lt;semantic|fixed|recursive&gt;, --include-pbis
+            </div>
+          </div>
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef rag query "&lt;query&gt;"</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.ragQuery.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --top-k &lt;n&gt;, --min-score &lt;0-1&gt;, --json
+            </div>
+          </div>
+        </div>
+
+        <!-- Validation Commands -->
+        <h3 class="text-xl font-bold mt-8 mb-4 text-sage-900">Validation Commands</h3>
+        <div class="space-y-4">
+          <div class="bg-sage-900 p-6 rounded-lg">
+            <code class="text-peach font-mono text-lg">chef validate docs [path]</code>
+            <p class="text-cream-200 mt-2 text-sm">
+              {t('cli.validateDocs.description')}
+            </p>
+            <div class="mt-3 text-cream-300 text-xs">
+              <strong>Options:</strong> --strict, --include-warnings, --report &lt;path&gt;, --json
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Web Interface -->
+      <section id="web" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">{t('web.title')}</h2>
+        <p class="text-sage-700 mb-6">
+          {t('web.description')}
+        </p>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blush">
+            <h3 class="text-lg font-bold mb-2 text-sage-900">{t('web.pbiBrowser.title')}</h3>
+            <p class="text-sage-700 text-sm">{t('web.pbiBrowser.description')}</p>
+            <code class="text-xs text-sage-600 mt-2 block">/app/pbis</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blush">
+            <h3 class="text-lg font-bold mb-2 text-sage-900">{t('web.semanticSearch.title')}</h3>
+            <p class="text-sage-700 text-sm">Search across all documentation with specialized tabs: Constraints, Patterns, Similar Work, Tech Docs, Business Docs, Examples, Deprecated.</p>
+            <code class="text-xs text-sage-600 mt-2 block">/app/search</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blush">
+            <h3 class="text-lg font-bold mb-2 text-sage-900">{t('web.meetingsBrowser.title')}</h3>
+            <p class="text-sage-700 text-sm">Browse all processed meetings with metadata display and links to transcripts and summaries.</p>
+            <code class="text-xs text-sage-600 mt-2 block">/app/meetings</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blush">
+            <h3 class="text-lg font-bold mb-2 text-sage-900">{t('web.transcriptViewer.title')}</h3>
+            <p class="text-sage-700 text-sm">{t('web.transcriptViewer.description')}</p>
+            <code class="text-xs text-sage-600 mt-2 block">/app/transcripts</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blush">
+            <h3 class="text-lg font-bold mb-2 text-sage-900">{t('web.exportMapping.title')}</h3>
+            <p class="text-sage-700 text-sm">{t('web.exportMapping.description')}</p>
+            <code class="text-xs text-sage-600 mt-2 block">/app/export-mapping</code>
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-lg border border-blush">
+            <h3 class="text-lg font-bold mb-2 text-sage-900">RAG API</h3>
+            <p class="text-sage-700 text-sm">REST API for context retrieval with specialized endpoints for constraints, patterns, similar work, and more.</p>
+            <code class="text-xs text-sage-600 mt-2 block">/api/rag/*</code>
+          </div>
+        </div>
+      </section>
+
+      <!-- RAG System -->
+      <section id="rag" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">RAG System</h2>
+        <p class="text-sage-700 mb-6">
+          Retrieval-Augmented Generation powers Step 4 (Context Enrichment) and the Semantic Search feature.
+        </p>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h3 class="text-xl font-bold mb-4 text-sage-900">Vector Store Configuration</h3>
+          <ul class="space-y-2 text-sage-700">
+            <li><strong>Provider:</strong> ChromaDB (local) with Pinecone support planned</li>
+            <li><strong>Embedding Model:</strong> Xenova/all-MiniLM-L6-v2 (384 dimensions, 80MB, fast)</li>
+            <li><strong>Chunking Strategy:</strong> Semantic (configurable: fixed, recursive)</li>
+            <li><strong>Chunk Settings:</strong> Min 100 chars, Max 500 chars, 50 char overlap</li>
+            <li><strong>Retrieval:</strong> Top-K (default 5), min similarity 0.3</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h3 class="text-xl font-bold mb-4 text-sage-900">{t('rag.endpoints.title')}</h3>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/constraints</code>
+              <p class="text-sage-600 mt-1">{t('rag.endpoints.constraintsDesc')}</p>
+            </div>
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/patterns</code>
+              <p class="text-sage-600 mt-1">{t('rag.endpoints.patternsDesc')}</p>
+            </div>
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/similar-work</code>
+              <p class="text-sage-600 mt-1">{t('rag.endpoints.similarWorkDesc')}</p>
+            </div>
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/tech-docs</code>
+              <p class="text-sage-600 mt-1">{t('rag.endpoints.techDocsDesc')}</p>
+            </div>
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/business</code>
+              <p class="text-sage-600 mt-1">{t('rag.endpoints.businessDesc')}</p>
+            </div>
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/examples</code>
+              <p class="text-sage-600 mt-1">{t('rag.endpoints.examplesDesc')}</p>
+            </div>
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/deprecated</code>
+              <p class="text-sage-600 mt-1">{t('rag.endpoints.deprecatedDesc')}</p>
+            </div>
+            <div class="bg-cream-50 p-3 rounded">
+              <code class="text-sage-600">/api/rag/by-domain</code>
+              <p class="text-sage-600 mt-1">Domain-organized search</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4 text-sage-900">{t('rag.frontmatter.title')}</h3>
+          <p class="text-sage-700 mb-4">{t('rag.frontmatter.description')}</p>
+          <pre class="bg-sage-900 text-peach p-4 rounded-lg text-sm overflow-x-auto"><code>---
+type: adr | policy | architecture | specification | reference | business | pbi | pact | guide
+id: XXX-NNN
+title: "Document Title"
+status: active | draft | deprecated
+domain: [authentication, pipeline, integration]
+decision_type: constraint | recommendation | pattern | example
+keywords: [explicit, search, terms]
+---</code></pre>
+        </div>
+      </section>
+
+      <!-- Configuration -->
+      <section id="config" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">Configuration</h2>
+        <p class="text-sage-700 mb-6">
+          {t('config.description')}
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-sage-900">{t('config.workflows.title')}</h3>
+            <ul class="space-y-2 text-sage-700 text-sm">
+              <li><code class="bg-sage-100 px-2 py-1 rounded">refinement.yaml</code> - Standard refinement workflow</li>
+              <li><code class="bg-sage-100 px-2 py-1 rounded">refinement-minimal.yaml</code> - Lightweight version</li>
+              <li><code class="bg-sage-100 px-2 py-1 rounded">refinement-full.yaml</code> - All features enabled</li>
+              <li><code class="bg-sage-100 px-2 py-1 rounded">refinement-questions-only.yaml</code> - Questions focus</li>
+              <li><code class="bg-sage-100 px-2 py-1 rounded">refinement-risk-focused.yaml</code> - Risk emphasis</li>
+              <li><code class="bg-sage-100 px-2 py-1 rounded">refinement-binary-readiness.yaml</code> - Simple ready/not-ready</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-sage-900">{t('config.dor.title')}</h3>
+            <ul class="space-y-2 text-sage-700 text-sm">
+              <li>&#8226; {t('config.dor.teamSpecific')}</li>
+              <li>&#8226; {t('config.dor.multiRole')}</li>
+              <li>&#8226; {t('config.dor.customizable')}</li>
+              <li>&#8226; {t('config.dor.enforcement')}</li>
+              <li>&#8226; {t('config.dor.localization')}</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-sage-900">{t('config.output.title')}</h3>
+            <ul class="space-y-2 text-sage-700 text-sm">
+              <li><strong>DevOps:</strong> Azure DevOps work item format</li>
+              <li><strong>Obsidian:</strong> Markdown with wiki links</li>
+              <li><strong>Confluence:</strong> Wiki-ready format</li>
+              <li><strong>JSON:</strong> Raw structured data</li>
+              <li><strong>Markdown:</strong> Standard documentation</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-lg font-bold mb-4 text-sage-900">Main Config File</h3>
+            <p class="text-sage-700 text-sm mb-2"><code class="bg-sage-100 px-2 py-1 rounded">backlog-chef.config.yaml</code></p>
+            <ul class="space-y-1 text-sage-600 text-sm">
+              <li>&#8226; Project metadata</li>
+              <li>&#8226; Server settings (web: 4321, chroma: 8000)</li>
+              <li>&#8226; Path configuration</li>
+              <li>&#8226; RAG settings</li>
+              <li>&#8226; Fireflies integration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section id="tech" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">{t('docs.techStack')}</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 text-sage-900">CLI (MVP)</h3>
+            <ul class="space-y-2 text-sage-700">
+              <li><strong>Language:</strong> TypeScript/Node.js</li>
+              <li><strong>AI Engine:</strong> Anthropic Claude API</li>
+              <li><strong>Integration:</strong> Model Context Protocol (MCP)</li>
+              <li><strong>Vector Store:</strong> ChromaDB</li>
+              <li><strong>Storage:</strong> Local JSON + .chef/ state folder</li>
+              <li><strong>Templating:</strong> Handlebars</li>
+            </ul>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-bold mb-4 text-sage-900">Web Interface (V1)</h3>
+            <ul class="space-y-2 text-sage-700">
+              <li><strong>Framework:</strong> Astro 4.x (Island architecture)</li>
+              <li><strong>UI Components:</strong> React 18</li>
+              <li><strong>Styling:</strong> Tailwind CSS v4</li>
+              <li><strong>Data Tables:</strong> TanStack Table</li>
+              <li><strong>SSR:</strong> Node.js adapter</li>
+              <li><strong>TypeScript:</strong> Strict mode</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+          <h3 class="text-xl font-bold mb-4 text-sage-900">{t('integrations.title')}</h3>
+          <div class="grid md:grid-cols-4 gap-4">
+            <div class="text-center p-4 bg-cream-50 rounded-lg">
+              <div class="text-2xl mb-2">&#127897;</div>
+              <strong class="text-sage-900">{t('integrations.fireflies.title')}</strong>
+              <p class="text-sage-600 text-sm">Meeting transcription</p>
+            </div>
+            <div class="text-center p-4 bg-cream-50 rounded-lg">
+              <div class="text-2xl mb-2">&#128311;</div>
+              <strong class="text-sage-900">{t('integrations.azureDevOps.title')}</strong>
+              <p class="text-sage-600 text-sm">Work items via MCP</p>
+            </div>
+            <div class="text-center p-4 bg-cream-50 rounded-lg">
+              <div class="text-2xl mb-2">&#128309;</div>
+              <strong class="text-sage-900">{t('integrations.atlassian.title')}</strong>
+              <p class="text-sage-600 text-sm">Confluence & Jira via MCP</p>
+            </div>
+            <div class="text-center p-4 bg-cream-50 rounded-lg">
+              <div class="text-2xl mb-2">&#128156;</div>
+              <strong class="text-sage-900">{t('integrations.obsidian.title')}</strong>
+              <p class="text-sage-600 text-sm">Knowledge management</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blush/30 border-l-4 border-sage-500 p-4 rounded-r-lg mt-6">
+          <h3 class="font-bold text-sage-900 mb-2">{t('integrations.mcp.title')}</h3>
+          <p class="text-sage-700">
+            {t('integrations.mcp.description')}
+          </p>
+        </div>
+      </section>
+
+      <!-- Roadmap -->
+      <section id="roadmap" class="mb-16">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">{t('docs.roadmap')}</h2>
+        <div class="space-y-4">
+          <div class="bg-sage-100 border-l-4 border-sage-500 p-6 rounded-r-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-sage-900">MVP (CLI)</h3>
+              <span class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+            </div>
+            <ul class="list-disc list-inside text-sage-700 space-y-1">
+              <li>&#10003; 10 CLI commands (process, resume, status, init, setup, export, format, rag index, rag query, validate)</li>
+              <li>&#10003; 8-step processing pipeline</li>
+              <li>&#10003; Fireflies integration</li>
+              <li>&#10003; RAG-powered context enrichment with ChromaDB</li>
+              <li>&#10003; Multiple output formats (DevOps, Obsidian, Confluence, JSON, Markdown)</li>
+              <li>&#10003; Pipeline state management (pause/resume)</li>
+              <li>&#10003; Documentation validation</li>
+              <li>&#128260; Pipeline quality improvements</li>
+            </ul>
+          </div>
+          <div class="bg-blush/30 border-l-4 border-sage-500 p-6 rounded-r-lg">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-xl font-bold text-sage-900">V1 (Web Interface)</h3>
+              <span class="bg-sage-600 text-white text-xs font-bold px-3 py-1 rounded-full">In Progress</span>
+            </div>
+            <ul class="list-disc list-inside text-sage-700 space-y-1">
+              <li>&#10003; Astro-powered web interface</li>
+              <li>&#10003; PBI browser with multi-view (Table, Card, Kanban)</li>
+              <li>&#10003; Semantic search page with specialized tabs</li>
+              <li>&#10003; Meetings browser</li>
+              <li>&#10003; Transcript viewer</li>
+              <li>&#10003; RAG API endpoints</li>
+              <li>&#128260; Export mapping configuration</li>
+              <li>&#128260; Real-time features</li>
+            </ul>
+          </div>
+          <div class="bg-sage-100 border-l-4 border-sage-500 p-6 rounded-r-lg">
+            <h3 class="text-xl font-bold mb-2 text-sage-900">V2 (Platform)</h3>
+            <ul class="list-disc list-inside text-sage-700 space-y-1">
+              <li>Multi-team collaboration</li>
+              <li>Plugin marketplace</li>
+              <li>Custom integrations</li>
+              <li>Enterprise features (SSO, on-prem)</li>
+              <li>Advanced analytics and insights</li>
+              <li>MS Teams / Slack integration</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Getting Started -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-4 text-sage-900 border-b-2 border-sage-500 pb-2">{t('docs.gettingStarted')}</h2>
+        <div class="bg-gradient-to-br from-sage-700 to-sage-800 text-white p-8 rounded-lg">
+          <h3 class="text-2xl font-bold mb-4">{t('docs.gettingStarted.title')}</h3>
+          <div class="bg-white/10 p-4 rounded-lg mb-6">
+            <pre class="text-cream-200 text-sm"><code># Install Backlog Chef
+npm install -g backlog-chef
+
+# Initialize in your project
+chef init
+
+# Run the setup wizard
+chef setup
+
+# Process your first meeting
+chef process &lt;fireflies-url&gt;</code></pre>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/en/#pricing" class="bg-white text-sage-600 px-6 py-3 rounded-lg font-semibold hover:bg-blush/30 transition text-center">
+              {t('docs.viewPricing')}
+            </a>
+            <a href="/en/#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition text-center">
+              {t('docs.contactUs')}
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

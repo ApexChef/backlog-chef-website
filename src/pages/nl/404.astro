@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const lang = 'nl';
+const t = useTranslations(lang);
+---
+
+<Layout title="Pagina Niet Gevonden - Backlog Chef" lang={lang}>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="text-center">
+      <h1 class="text-9xl font-bold text-blue-600 mb-4">404</h1>
+      <h2 class="text-4xl font-bold text-slate-900 mb-4">{t('404.title')}</h2>
+      <p class="text-xl text-slate-600 mb-8">
+        {t('404.description')}
+      </p>
+      <a href="/nl/" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block">
+        {t('404.backHome')}
+      </a>
+    </div>
+  </main>
+</Layout>
