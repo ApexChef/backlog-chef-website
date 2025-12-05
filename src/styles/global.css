@@ -1,1 +1,121 @@
 @import "tailwindcss";
+@import "./fonts.css";
+
+@theme {
+  /* ===== BACKLOG CHEF 2026 - INKUBIS INSPIRED ===== */
+
+  /* Primary - Deep Plum (Inkubis-style dark) */
+  --color-plum-950: #0D0109;
+  --color-plum-900: #1A0212;
+  --color-plum-800: #280223;
+  --color-plum-700: #3D0435;
+  --color-plum-600: #520647;
+  --color-plum-500: #6B0A5C;
+
+  /* Accent - Electric Amber (Chef's fire, warmer than Inkubis yellow) */
+  --color-amber-400: #FBBF24;
+  --color-amber-300: #FCD34D;
+  --color-amber-200: #FDE68A;
+
+  /* Secondary - Muted Mauve (Inkubis-style) */
+  --color-mauve-400: #C096B3;
+  --color-mauve-300: #D4B5CA;
+  --color-mauve-200: #E8D4E0;
+  --color-mauve-100: #F5EBF1;
+
+  /* Neutral - Warm Grays */
+  --color-warm-50: #FAFAF9;
+  --color-warm-100: #F5F5F4;
+  --color-warm-200: #E7E5E4;
+  --color-warm-300: #D6D3D1;
+  --color-warm-400: #A8A29E;
+  --color-warm-500: #78716C;
+  --color-warm-600: #57534E;
+  --color-warm-700: #44403C;
+  --color-warm-800: #292524;
+  --color-warm-900: #1C1917;
+
+  /* Success/Semantic */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+
+  /* ===== TYPOGRAPHY ===== */
+
+  --font-display: 'Montserrat-Alt1', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, monospace;
+
+  /* ===== SHADOWS ===== */
+
+  --shadow-glow-amber: 0 0 40px rgba(251, 191, 36, 0.3);
+  --shadow-glow-mauve: 0 0 40px rgba(192, 150, 179, 0.2);
+  --shadow-brand-sm: 0 1px 2px 0 rgb(40 2 35 / 0.05);
+  --shadow-brand: 0 4px 6px -1px rgb(40 2 35 / 0.1), 0 2px 4px -2px rgb(40 2 35 / 0.1);
+  --shadow-brand-lg: 0 10px 15px -3px rgb(40 2 35 / 0.1), 0 4px 6px -4px rgb(40 2 35 / 0.1);
+  --shadow-brand-xl: 0 20px 25px -5px rgb(40 2 35 / 0.1), 0 8px 10px -6px rgb(40 2 35 / 0.1);
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warm-50);
+  color: var(--color-warm-800);
+}
+
+/* Headings - use display font for brand consistency */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-warm-900);
+}
+
+/* Navigation and brand elements use display font */
+nav, .brand-font {
+  font-family: var(--font-display);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-amber-200);
+  color: var(--color-plum-900);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-amber-400);
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for interactive elements */
+a, button {
+  transition: all 0.2s ease;
+}
+
+/* Custom utility classes for the new palette */
+.bg-hero-gradient {
+  background: linear-gradient(135deg, var(--color-plum-900) 0%, var(--color-plum-800) 50%, var(--color-plum-900) 100%);
+}
+
+.bg-hero-gradient-radial {
+  background: radial-gradient(ellipse at top, var(--color-plum-700) 0%, var(--color-plum-900) 70%);
+}
+
+.text-gradient-amber {
+  background: linear-gradient(135deg, var(--color-amber-300) 0%, var(--color-amber-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-amber {
+  box-shadow: var(--shadow-glow-amber);
+}
+
+.glow-mauve {
+  box-shadow: var(--shadow-glow-mauve);
+}

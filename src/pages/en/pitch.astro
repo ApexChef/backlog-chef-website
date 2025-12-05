@@ -1,0 +1,1058 @@
+---
+// Pitch deck page - standalone presentation (English)
+const lang = 'en';
+---
+
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Backlog Chef - Investor Pitch</title>
+  <link rel="alternate" hreflang="en" href="https://backlogchef.com/en/pitch" />
+  <link rel="alternate" hreflang="nl" href="https://backlogchef.com/nl/pitch" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: white;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .slide {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      padding: 60px 80px;
+      position: relative;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-number {
+      position: absolute;
+      bottom: 30px;
+      right: 40px;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .logo {
+      position: absolute;
+      top: 30px;
+      left: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #3b82f6;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .lang-switch a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .lang-switch a.active {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .lang-switch a:hover:not(.active) {
+      color: white;
+    }
+
+    h1 {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 30px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      color: #3b82f6;
+    }
+
+    h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+
+    .big-number {
+      font-size: 72px;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+
+    .highlight {
+      color: #3b82f6;
+    }
+
+    .warn {
+      color: #f59e0b;
+    }
+
+    .success {
+      color: #22c55e;
+    }
+
+    ul {
+      list-style: none;
+      font-size: 24px;
+      line-height: 2;
+    }
+
+    ul li::before {
+      content: "-> ";
+      color: #3b82f6;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      flex: 1;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      flex: 1;
+      align-items: start;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 30px;
+      flex: 1;
+      align-items: start;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 18px;
+    }
+
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+    }
+
+    .title-slide {
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    }
+
+    .title-slide h1 {
+      font-size: 72px;
+      margin-bottom: 20px;
+    }
+
+    .title-slide p {
+      font-size: 32px;
+      color: #e0e7ff;
+    }
+
+    .tagline {
+      font-size: 28px;
+      color: #93c5fd;
+      margin-top: 40px;
+    }
+
+    .quote {
+      font-style: italic;
+      font-size: 32px;
+      color: #f59e0b;
+      border-left: 4px solid #f59e0b;
+      padding-left: 30px;
+      margin: 30px 0;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 40px;
+      background: #1e293b;
+      border-radius: 16px;
+    }
+
+    .stat-box .number {
+      font-size: 56px;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+
+    .stat-box .label {
+      font-size: 20px;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+
+    .pipeline-step {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .pipeline-step .step-num {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background: #3b82f6;
+      border-radius: 50%;
+      line-height: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .pipeline-step h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .pipeline-step p {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .pricing-card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .pricing-card.popular {
+      border: 2px solid #3b82f6;
+      transform: scale(1.05);
+    }
+
+    .pricing-card h4 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .pricing-card .price {
+      font-size: 42px;
+      font-weight: 800;
+      color: #3b82f6;
+    }
+
+    .pricing-card .price span {
+      font-size: 18px;
+      color: #94a3b8;
+    }
+
+    .pricing-card ul {
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .pricing-card ul li::before {
+      content: "* ";
+      color: #22c55e;
+    }
+
+    .competitor-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 18px;
+    }
+
+    .competitor-table th {
+      text-align: left;
+      padding: 15px;
+      background: #1e293b;
+      color: #3b82f6;
+    }
+
+    .competitor-table td {
+      padding: 15px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .competitor-table .check {
+      color: #22c55e;
+    }
+
+    .competitor-table .cross {
+      color: #ef4444;
+    }
+
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .timeline-item {
+      text-align: center;
+      flex: 1;
+      position: relative;
+    }
+
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: #3b82f6;
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    .timeline-dot {
+      width: 50px;
+      height: 50px;
+      background: #3b82f6;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-dot.done {
+      background: #22c55e;
+    }
+
+    .timeline-dot.current {
+      background: #f59e0b;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .cta-slide {
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+    }
+
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+    }
+
+    .controls button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .controls button:hover {
+      background: #2563eb;
+    }
+
+    .controls button:disabled {
+      background: #475569;
+      cursor: not-allowed;
+    }
+
+    .ask-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .ask-item {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 16px;
+      border-left: 4px solid #3b82f6;
+    }
+
+    .ask-item h4 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #3b82f6;
+    }
+
+    .ask-item p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Language Switch -->
+  <div class="lang-switch">
+    <a href="/en/pitch" class="active">EN</a>
+    <a href="/nl/pitch">NL</a>
+  </div>
+
+  <!-- Slide 1: Title -->
+  <div class="slide title-slide active">
+    <div class="center">
+      <h1>Backlog Chef</h1>
+      <p>Transform Meetings into High-Quality Product Backlogs</p>
+      <p class="tagline">AI-powered intelligence for Scrum teams</p>
+    </div>
+    <div class="slide-number">1 / 17</div>
+  </div>
+
+  <!-- Slide 2: The Problem - Story -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>The Problem</h2>
+    <div class="grid-2">
+      <div>
+        <p class="quote">"We just spent 2 hours in refinement, and I still have incomplete PBIs with no acceptance criteria..."</p>
+        <p style="margin-top: 30px;">Every Scrum team knows this pain:</p>
+        <ul style="margin-top: 20px;">
+          <li>Long refinement meetings that drain energy</li>
+          <li>PBIs that aren't "ready" for sprint planning</li>
+          <li>Questions that could have been asked earlier</li>
+          <li>Context lost between meetings</li>
+          <li>Same mistakes repeated across sprints</li>
+        </ul>
+      </div>
+      <div>
+        <div class="stat-box" style="margin-bottom: 30px;">
+          <div class="number">2-3 hrs</div>
+          <div class="label">Average refinement meeting length</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">40%</div>
+          <div class="label">PBIs rejected at sprint planning</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">2 / 17</div>
+  </div>
+
+  <!-- Slide 3: Problem Deep Dive -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Why This Happens</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>No Memory</h3>
+        <p>Teams forget past decisions, similar work, and lessons learned. Every refinement starts from scratch.</p>
+      </div>
+      <div class="card">
+        <h3>No Quality Gate</h3>
+        <p>No objective check against Definition of Ready. Incomplete PBIs slip through until sprint planning.</p>
+      </div>
+      <div class="card">
+        <h3>No Context</h3>
+        <p>Missing links to architecture decisions, dependencies, and stakeholder requirements.</p>
+      </div>
+    </div>
+    <div style="margin-top: 60px; text-align: center;">
+      <p style="font-size: 28px;">Result: <span class="warn">Wasted time, frustrated teams, lower quality software</span></p>
+    </div>
+    <div class="slide-number">3 / 17</div>
+  </div>
+
+  <!-- Slide 4: Solution -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>The Solution: Backlog Chef</h2>
+    <div class="grid-2">
+      <div>
+        <h3>An AI system that transforms meeting transcripts into high-quality PBIs</h3>
+        <ul style="margin-top: 30px;">
+          <li><span class="highlight">Automated extraction</span> from meeting transcripts</li>
+          <li><span class="highlight">Quality scoring</span> against Definition of Ready</li>
+          <li><span class="highlight">Context enrichment</span> from your documentation</li>
+          <li><span class="highlight">Smart questions</span> with suggested answers</li>
+          <li><span class="highlight">Risk detection</span> before sprint planning</li>
+        </ul>
+      </div>
+      <div style="text-align: center;">
+        <div style="font-size: 120px; margin-bottom: 30px;">&#127859;</div>
+        <p style="font-size: 20px; color: #94a3b8;">From raw transcript to sprint-ready PBIs</p>
+      </div>
+    </div>
+    <div class="slide-number">4 / 17</div>
+  </div>
+
+  <!-- Slide 5: How It Works - Pipeline -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>8-Step Intelligence Pipeline</h2>
+    <div class="grid-4" style="margin-top: 20px;">
+      <div class="pipeline-step">
+        <div class="step-num">1</div>
+        <h4>Event Detection</h4>
+        <p>Identify meeting type</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">2</div>
+        <h4>Extract PBIs</h4>
+        <p>Parse candidates from transcript</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">3</div>
+        <h4>Score Quality</h4>
+        <p>Evaluate completeness</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">4</div>
+        <h4>Enrich Context</h4>
+        <p>Find similar work & docs</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">5</div>
+        <h4>Check Risks</h4>
+        <p>Detect dependencies</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">6</div>
+        <h4>Generate Questions</h4>
+        <p>Smart Q&A with proposals</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">7</div>
+        <h4>Readiness Check</h4>
+        <p>Validate against DoR</p>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">8</div>
+        <h4>Output</h4>
+        <p>Export to your tools</p>
+      </div>
+    </div>
+    <div style="margin-top: 50px; text-align: center;">
+      <p>Powered by <span class="highlight">Claude AI</span> + <span class="highlight">RAG</span> (Retrieval-Augmented Generation)</p>
+    </div>
+    <div class="slide-number">5 / 17</div>
+  </div>
+
+  <!-- Slide 6: Product - CLI -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Product: Powerful CLI</h2>
+    <div class="grid-2">
+      <div>
+        <div style="background: #0d1117; padding: 30px; border-radius: 12px; font-family: monospace;">
+          <p style="color: #7ee787; font-size: 18px;">$ chef process meeting.txt</p>
+          <p style="color: #8b949e; font-size: 14px; margin-top: 10px;">-> Step 1/8: Detecting event type...</p>
+          <p style="color: #8b949e; font-size: 14px;">-> Step 2/8: Extracting PBIs...</p>
+          <p style="color: #8b949e; font-size: 14px;">-> Found 5 candidate PBIs</p>
+          <p style="color: #8b949e; font-size: 14px;">-> Step 3/8: Scoring confidence...</p>
+          <p style="color: #7ee787; font-size: 14px; margin-top: 10px;">* Pipeline complete! 5 PBIs exported</p>
+        </div>
+        <p style="margin-top: 30px; font-size: 20px;">10 commands for complete workflow control</p>
+      </div>
+      <div>
+        <h3>Key Commands</h3>
+        <ul>
+          <li><code style="color: #7ee787;">chef process</code> - Run the pipeline</li>
+          <li><code style="color: #7ee787;">chef resume</code> - Continue paused work</li>
+          <li><code style="color: #7ee787;">chef status</code> - View all pipelines</li>
+          <li><code style="color: #7ee787;">chef rag index</code> - Index your docs</li>
+          <li><code style="color: #7ee787;">chef rag query</code> - Semantic search</li>
+          <li><code style="color: #7ee787;">chef export</code> - Output to files</li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-number">6 / 17</div>
+  </div>
+
+  <!-- Slide 7: Product - Web Interface -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Product: Web Interface</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>PBI Browser</h3>
+        <p>Table, Card & Kanban views. Filter by status, priority, domain.</p>
+      </div>
+      <div class="card">
+        <h3>Semantic Search</h3>
+        <p>Find constraints, patterns, similar work across all docs.</p>
+      </div>
+      <div class="card">
+        <h3>Meetings View</h3>
+        <p>Browse transcripts, speakers, extracted PBIs.</p>
+      </div>
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <p>Built with <span class="highlight">Astro</span> + <span class="highlight">React</span> + <span class="highlight">TanStack Table</span></p>
+      <p style="color: #94a3b8; margin-top: 10px;">Modern, fast, developer-friendly</p>
+    </div>
+    <div class="slide-number">7 / 17</div>
+  </div>
+
+  <!-- Slide 8: Key Differentiators -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Why We're Different</h2>
+    <div class="grid-3">
+      <div class="card" style="border-color: #22c55e;">
+        <h3>Domain-Specific</h3>
+        <p>Built for Scrum/Agile. Not generic transcription. Understands PBIs, acceptance criteria, DoR.</p>
+      </div>
+      <div class="card" style="border-color: #22c55e;">
+        <h3>Quality Built-In</h3>
+        <p>Every PBI scored and validated. Confidence metrics prevent incomplete items reaching sprints.</p>
+      </div>
+      <div class="card" style="border-color: #22c55e;">
+        <h3>Context-Aware</h3>
+        <p>RAG-powered search finds similar work, past decisions, and technical constraints.</p>
+      </div>
+      <div class="card" style="border-color: #f59e0b;">
+        <h3>Local-First</h3>
+        <p>Your data stays on your machine. API keys are yours. Privacy by design.</p>
+      </div>
+      <div class="card" style="border-color: #f59e0b;">
+        <h3>Integrated</h3>
+        <p>Fireflies, Azure DevOps, Jira, Confluence via MCP. Export to any format.</p>
+      </div>
+      <div class="card" style="border-color: #f59e0b;">
+        <h3>Learns Over Time</h3>
+        <p>Indexes your documentation. Gets smarter with your team's patterns.</p>
+      </div>
+    </div>
+    <div class="slide-number">8 / 17</div>
+  </div>
+
+  <!-- Slide 9: Market Opportunity -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Market Opportunity</h2>
+    <div class="grid-3">
+      <div class="stat-box">
+        <div class="number">$1.5B</div>
+        <div class="label">TAM: Agile tools market (2024)</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">12M+</div>
+        <div class="label">Scrum practitioners worldwide</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">71%</div>
+        <div class="label">Companies using Agile methods</div>
+      </div>
+    </div>
+    <div style="margin-top: 50px;">
+      <h3>Target Segments</h3>
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card">
+          <h3>Software Teams</h3>
+          <p>10-100 devs, 2-3 hrs/week saved. <span class="highlight">EUR500-5k/mo value</span></p>
+        </div>
+        <div class="card">
+          <h3>Enterprise</h3>
+          <p>Banks, Insurance, Telecom. Compliance + audit trails. <span class="highlight">EUR5-50k/mo value</span></p>
+        </div>
+        <div class="card">
+          <h3>Consulting</h3>
+          <p>Multi-client teams. Better context switching. <span class="highlight">EUR1-10k/mo value</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">9 / 17</div>
+  </div>
+
+  <!-- Slide 10: Business Model -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Business Model</h2>
+    <div class="grid-4">
+      <div class="pricing-card">
+        <h4>Starter</h4>
+        <div class="price">EUR49<span>/mo</span></div>
+        <ul>
+          <li>1 team</li>
+          <li>50 meetings/mo</li>
+          <li>CLI access</li>
+          <li>Email support</li>
+        </ul>
+      </div>
+      <div class="pricing-card popular">
+        <h4>Pro</h4>
+        <div class="price">EUR149<span>/mo</span></div>
+        <ul>
+          <li>3 teams</li>
+          <li>200 meetings/mo</li>
+          <li>CLI + Web</li>
+          <li>RAG + Priority support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h4>Business</h4>
+        <div class="price">EUR499<span>/mo</span></div>
+        <ul>
+          <li>Unlimited teams</li>
+          <li>Unlimited meetings</li>
+          <li>Full platform</li>
+          <li>Dedicated support</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <h4>Enterprise</h4>
+        <div class="price">Custom</div>
+        <ul>
+          <li>On-premise</li>
+          <li>SSO & compliance</li>
+          <li>Custom MCP</li>
+          <li>24/7 support</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <p>Revenue model: <span class="highlight">SaaS subscription</span> | Target: <span class="success">EUR10k MRR in Year 1</span></p>
+    </div>
+    <div class="slide-number">10 / 17</div>
+  </div>
+
+  <!-- Slide 11: Competition -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Competitive Landscape</h2>
+    <table class="competitor-table">
+      <tr>
+        <th>Feature</th>
+        <th>Backlog Chef</th>
+        <th>Otter.ai</th>
+        <th>Fireflies</th>
+        <th>Jira + AI</th>
+      </tr>
+      <tr>
+        <td>Meeting transcription</td>
+        <td class="check">* (via Fireflies)</td>
+        <td class="check">*</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>PBI extraction</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Quality scoring (DoR)</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Context enrichment (RAG)</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Risk detection</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+      </tr>
+      <tr>
+        <td>Agile-specific intelligence</td>
+        <td class="check">*</td>
+        <td class="cross">x</td>
+        <td class="cross">x</td>
+        <td style="color: #f59e0b;">Partial</td>
+      </tr>
+    </table>
+    <div style="margin-top: 30px; text-align: center;">
+      <p><span class="highlight">We're not competing with transcription tools - we complete them.</span></p>
+    </div>
+    <div class="slide-number">11 / 17</div>
+  </div>
+
+  <!-- Slide 12: Traction & Roadmap -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Traction & Roadmap</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot done">*</div>
+        <h3>MVP Built</h3>
+        <p>10 CLI commands<br>8-step pipeline<br>RAG system</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot done">*</div>
+        <h3>Web Interface</h3>
+        <p>PBI browser<br>Semantic search<br>Meetings view</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot current">-></div>
+        <h3>Beta Launch</h3>
+        <p>First pilot users<br>Feedback loop<br>Quality improvements</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">4</div>
+        <h3>Public Launch</h3>
+        <p>Marketing site<br>Pricing live<br>Self-service onboarding</p>
+      </div>
+    </div>
+    <div style="margin-top: 60px;">
+      <h3>Current Status</h3>
+      <ul>
+        <li>Working MVP with full 8-step pipeline</li>
+        <li>50+ documentation files for architecture</li>
+        <li>23 PBIs planned using PACT framework</li>
+        <li>Ready for pilot customer validation</li>
+      </ul>
+    </div>
+    <div class="slide-number">12 / 17</div>
+  </div>
+
+  <!-- Slide 13: Go-to-Market -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Go-to-Market: Why Cronos?</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Built-In Customer Network</h3>
+        <p style="margin-bottom: 30px;">Cronos manages <span class="highlight">multiple software companies</span> - each with dev teams running Scrum.</p>
+        <div class="card" style="margin-bottom: 20px; border-color: #22c55e;">
+          <h3>Phase 1: Internal Pilots</h3>
+          <p>Pilot with 2-3 Cronos portfolio companies. Real feedback, real validation, zero cold outreach.</p>
+        </div>
+        <div class="card" style="border-color: #3b82f6;">
+          <h3>Phase 2: Expand & Refine</h3>
+          <p>Use case studies from Cronos companies to reach external market with proven results.</p>
+        </div>
+      </div>
+      <div>
+        <h3>Why This Partnership Works</h3>
+        <ul>
+          <li>Immediate access to pilot customers</li>
+          <li>Real Scrum teams with real pain</li>
+          <li>Fast feedback loops</li>
+          <li>Case studies from day one</li>
+          <li>Warm intros to other companies</li>
+        </ul>
+        <div class="stat-box" style="margin-top: 40px;">
+          <div class="number">-></div>
+          <div class="label">You have the customers.<br>I have the solution.</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">13 / 17</div>
+  </div>
+
+  <!-- Slide 14: Team -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>The Founder</h2>
+    <div class="grid-2">
+      <div style="text-align: center;">
+        <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 72px;">&#128104;&#8205;&#128187;</div>
+        <h3 style="font-size: 32px;">Alwin</h3>
+        <p style="color: #3b82f6;">Founder & Developer</p>
+      </div>
+      <div>
+        <h3>Background</h3>
+        <ul>
+          <li><span class="highlight">Salesforce/Apex Developer</span> - Enterprise experience</li>
+          <li><span class="highlight">Process Expert</span> - Deep Scrum/Agile knowledge</li>
+          <li><span class="highlight">Full-Stack Builder</span> - TypeScript, Node.js, React</li>
+          <li><span class="highlight">AI/LLM Experience</span> - Claude API, RAG systems</li>
+        </ul>
+        <h3 style="margin-top: 40px;">Why Me?</h3>
+        <p style="font-size: 20px;">I've lived this pain. As a developer in Scrum teams for years, I've seen countless hours wasted in refinement. I built BacklogChef to solve my own problem - and every team's problem.</p>
+      </div>
+    </div>
+    <div class="slide-number">14 / 17</div>
+  </div>
+
+  <!-- Slide 15: Why Now -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>Why Now?</h2>
+    <div class="grid-2">
+      <div>
+        <div class="card" style="margin-bottom: 30px; border-color: #22c55e;">
+          <h3>AI Capabilities Are Mature</h3>
+          <p>LLMs like Claude can now understand context, extract structured data, and reason about software development. This wasn't possible 2 years ago.</p>
+        </div>
+        <div class="card" style="border-color: #3b82f6;">
+          <h3>RAG Technology Ready</h3>
+          <p>Vector databases (ChromaDB, Pinecone) make semantic search accessible. We can now connect AI to your team's knowledge.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 30px; border-color: #f59e0b;">
+          <h3>Remote Work Accelerated</h3>
+          <p>More async meetings = more need for structured documentation. Teams can't rely on "being in the room" anymore.</p>
+        </div>
+        <div class="card" style="border-color: #8b5cf6;">
+          <h3>Agile Adoption Growing</h3>
+          <p>71% of companies use Agile. The market is massive and underserved by intelligent tooling.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">15 / 17</div>
+  </div>
+
+  <!-- Slide 16: The Ask -->
+  <div class="slide">
+    <div class="logo">Backlog Chef</div>
+    <h2>What We're Looking For</h2>
+    <div class="ask-list">
+      <div class="ask-item">
+        <h4>Mentorship</h4>
+        <p>GTM strategy, pricing validation, first customer acquisition playbook</p>
+      </div>
+      <div class="ask-item">
+        <h4>Network Access</h4>
+        <p>Introductions to Scrum Masters, Agile coaches, and enterprise dev teams</p>
+      </div>
+      <div class="ask-item">
+        <h4>Technical Guidance</h4>
+        <p>Scaling architecture, security best practices, enterprise readiness</p>
+      </div>
+      <div class="ask-item">
+        <h4>Funding</h4>
+        <p>Seed capital to focus full-time and hire first team members</p>
+      </div>
+    </div>
+    <div style="margin-top: 50px; text-align: center;">
+      <p style="font-size: 24px;">Ready to join the accelerator and <span class="highlight">cook up something great</span> together.</p>
+    </div>
+    <div class="slide-number">16 / 17</div>
+  </div>
+
+  <!-- Slide 17: Thank You -->
+  <div class="slide cta-slide">
+    <div class="center">
+      <h1 style="font-size: 64px;">Thank You</h1>
+      <p style="font-size: 28px; margin-top: 20px;">Let's transform how teams create backlogs.</p>
+      <div style="margin-top: 60px; display: flex; gap: 40px;">
+        <div>
+          <p style="color: #93c5fd; font-size: 18px;">Website</p>
+          <p style="font-size: 24px;">backlogchef.com</p>
+        </div>
+        <div>
+          <p style="color: #93c5fd; font-size: 18px;">Email</p>
+          <p style="font-size: 24px;">alwin@apexchef.com</p>
+        </div>
+        <div>
+          <p style="color: #93c5fd; font-size: 18px;">GitHub</p>
+          <p style="font-size: 24px;">github.com/ApexChef</p>
+        </div>
+      </div>
+      <p class="tagline" style="margin-top: 60px;">Questions?</p>
+    </div>
+    <div class="slide-number">17 / 17</div>
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="controls">
+    <button id="prevBtn" disabled>&#8592; Previous</button>
+    <button id="nextBtn">Next &#8594;</button>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === slides.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        showSlide(currentSlide);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        if (currentSlide < slides.length - 1) {
+          currentSlide++;
+          showSlide(currentSlide);
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (currentSlide > 0) {
+          currentSlide--;
+          showSlide(currentSlide);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

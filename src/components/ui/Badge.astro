@@ -1,0 +1,22 @@
+---
+interface Props {
+  variant?: 'sage' | 'blush' | 'peach' | 'coral' | 'dark';
+  class?: string;
+}
+
+const { variant = 'sage', class: className = '' } = Astro.props;
+
+const variants: Record<string, string> = {
+  sage: 'bg-sage-100 text-sage-700',
+  blush: 'bg-blush text-sage-800',
+  peach: 'bg-peach text-sage-800',
+  coral: 'bg-coral text-sage-900',
+  dark: 'bg-sage-800 text-cream-100'
+};
+
+const classes = ['inline-block px-4 py-1.5 rounded-full text-sm font-semibold', variants[variant], className].join(' ');
+---
+
+<span class={classes}>
+  <slot />
+</span>
